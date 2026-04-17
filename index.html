@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="theme-color" content="#0f172a" />
+<title>Atlas - {{DESTINATION}}</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --panel: #111a2e;
+    --panel-2: #18233c;
+    --ink: #eef2ff;
+    --ink-dim: #a6b0d0;
+    --accent: #7cc3ff;
+    --accent-2: #9f7cff;
+    --ok: #5cd391;
+    --warn: #f0b455;
+    --bad: #f06a6a;
+    --line: #22304f;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(0,0,0,.35);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:active { opacity: .7; }
+  header {
+    padding: max(18px, env(safe-area-inset-top)) 18px 14px;
+    background: linear-gradient(160deg, #162445, #0b1220 65%);
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 5;
+    backdrop-filter: saturate(140%) blur(8px);
+  }
+  .eyebrow { color: var(--ink-dim); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 2px 0 4px; font-size: 22px; font-weight: 700; letter-spacing: .2px; }
+  .dates { color: var(--ink-dim); font-size: 14px; }
+  nav.tabs {
+    display: flex; gap: 6px; overflow-x: auto; padding: 12px 14px;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    position: sticky; top: 74px; z-index: 4;
+  }
+  nav.tabs::-webkit-scrollbar { display: none; }
+  .tab { flex: 0 0 auto; padding: 8px 12px; border-radius: 999px; background: var(--panel);
+    color: var(--ink-dim); font-size: 13px; border: 1px solid var(--line); white-space: nowrap; }
+  .tab.active { background: var(--panel-2); color: var(--ink); border-color: var(--accent); }
+  main { padding: 16px 14px 80px; display: grid; gap: 14px; }
+  section.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 14px; }
+  section.card h2 { margin: 0 0 10px; font-size: 16px; letter-spacing: .2px; }
+  section.card h2 .sub { color: var(--ink-dim); font-weight: 400; font-size: 13px; margin-left: 6px; }
+  ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .row { display: grid; grid-template-columns: 62px 1fr; gap: 10px; align-items: start; }
+  .row .when { color: var(--ink-dim); font-size: 13px; padding-top: 2px; }
+  .row .what b { display: block; }
+  .row .what small { color: var(--ink-dim); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px;
+    border: 1px solid var(--line); color: var(--ink-dim); background: var(--panel-2); }
+  .pill.ok { color: var(--ok); border-color: rgba(92,211,145,.3); }
+  .pill.warn { color: var(--warn); border-color: rgba(240,180,85,.3); }
+  .pill.bad { color: var(--bad); border-color: rgba(240,106,106,.3); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kv { display: grid; grid-template-columns: 110px 1fr; gap: 6px 10px; font-size: 14px; }
+  .kv dt { color: var(--ink-dim); }
+  .kv dd { margin: 0; }
+  .chip { display: inline-block; padding: 4px 10px; margin: 3px 4px 0 0; border-radius: 8px;
+    background: var(--panel-2); border: 1px solid var(--line); font-size: 13px; }
+  .check { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--panel-2);
+    border-radius: 10px; border: 1px solid var(--line); }
+  .check .box { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--ink-dim);
+    display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .check.done { border-color: rgba(92,211,145,.3); }
+  .check.done .box { border-color: var(--ok); color: var(--ok); }
+  .check.done .box::before { content: "✓"; }
+  .check .text { flex: 1; }
+  .check .text small { color: var(--ink-dim); display: block; }
+  .alert { padding: 10px 12px; border-radius: 10px; border: 1px solid; background: rgba(240,106,106,.08); }
+  .alert.warn { background: rgba(240,180,85,.08); border-color: rgba(240,180,85,.35); color: #fde0b5; }
+  .alert.bad { background: rgba(240,106,106,.08); border-color: rgba(240,106,106,.35); color: #fccfcf; }
+  .alert.ok { background: rgba(92,211,145,.08); border-color: rgba(92,211,145,.3); color: #cff2dc; }
+  footer { padding: 20px 14px max(30px, env(safe-area-inset-bottom));
+    color: var(--ink-dim); font-size: 12px; text-align: center; }
+  footer b { color: var(--ink); }
+  details { background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  details[open] summary { margin-bottom: 8px; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "＋"; float: right; color: var(--ink-dim); }
+  details[open] summary::after { content: "−"; }
+  .qr { display: flex; align-items: center; gap: 10px; }
+  .qr img { width: 88px; height: 88px; border-radius: 8px; background: #fff; padding: 6px; }
+  hr.sep { border: none; border-top: 1px solid var(--line); margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Atlas · Trip Brief</div>
+  <h1 id="trip-title">{{DESTINATION}}</h1>
+  <div class="dates" id="trip-dates">{{START_DATE}} → {{END_DATE}} · {{DAYS}} days</div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <a class="tab active" href="#itinerary">Itinerary</a>
+  <a class="tab" href="#logistics">Logistics</a>
+  <a class="tab" href="#edc">Eat / Drink / See</a>
+  <a class="tab" href="#safety">Safety</a>
+  <a class="tab" href="#intl">International</a>
+  <a class="tab" href="#receipts">Receipts</a>
+  <a class="tab" href="#pack">Pack</a>
+</nav>
+
+<main>
+
+  <!-- ITINERARY -->
+  <section class="card" id="itinerary">
+    <h2>Itinerary <span class="sub">day by day</span></h2>
+    <div id="itinerary-root">
+      <p class="dates">Atlas rebuilds this from parsed confirmations on every publish.</p>
+    </div>
+  </section>
+
+  <!-- LOGISTICS -->
+  <section class="card" id="logistics">
+    <h2>Logistics vault</h2>
+    <details open>
+      <summary>Flights</summary>
+      <div id="flights"></div>
+    </details>
+    <div style="height:8px"></div>
+    <details>
+      <summary>Lodging</summary>
+      <div id="lodging"></div>
+    </details>
+    <div style="height:8px"></div>
+    <details>
+      <summary>Ground transport</summary>
+      <div id="ground"></div>
+    </details>
+    <div style="height:8px"></div>
+    <details>
+      <summary>Reservations and tickets</summary>
+      <div id="reservations"></div>
+    </details>
+    <div style="height:8px"></div>
+    <details>
+      <summary>Key contacts</summary>
+      <div id="contacts"></div>
+    </details>
+  </section>
+
+  <!-- EAT DRINK SEE -->
+  <section class="card" id="edc">
+    <h2>Eat / Drink / See</h2>
+    <h3 style="margin:12px 0 6px;font-size:14px;color:var(--ink-dim)">Coffee near your hotel</h3>
+    <div id="coffee"></div>
+    <h3 style="margin:14px 0 6px;font-size:14px;color:var(--ink-dim)">Restaurants</h3>
+    <div id="restaurants"></div>
+    <h3 style="margin:14px 0 6px;font-size:14px;color:var(--ink-dim)">Events on your dates</h3>
+    <div id="events"></div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="card" id="safety">
+    <h2>Safety + health</h2>
+    <div id="safety-root"></div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section class="card" id="intl">
+    <h2>International details</h2>
+    <div id="intl-root"></div>
+  </section>
+
+  <!-- RECEIPTS -->
+  <section class="card" id="receipts">
+    <h2>Receipts to capture <span class="sub">business only</span></h2>
+    <p class="dates" id="expense-link-row"></p>
+    <div id="receipts-root"></div>
+    <hr class="sep" />
+    <p class="dates">Text a receipt photo to Atlas. He will extract vendor / date / amount / category / payment method and append to the trip's Google Sheet. A green checkmark appears here on the next publish.</p>
+  </section>
+
+  <!-- PACKING -->
+  <section class="card" id="pack">
+    <h2>Packing reminders <span class="sub">trip-specific only</span></h2>
+    <div id="packing-root"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div>Atlas · generated <span id="generated-at">{{GENERATED_AT}}</span></div>
+  <div>Last Gmail sweep: <span id="last-sweep">{{LAST_SWEEP}}</span> · Next run: <span id="next-run">{{NEXT_RUN}}</span></div>
+</footer>
+
+<script>
+// ----------------------------------------------------------------------------
+// TRIP DATA. Atlas overwrites this object on every publish, then regenerates
+// the DOM below. Keep the shape stable; do not add ad hoc top-level keys
+// without updating Atlas's publisher.
+// ----------------------------------------------------------------------------
+const TRIP = {
+  destination: "{{DESTINATION}}",
+  country_code: "{{COUNTRY_CODE}}",
+  start_date: "{{START_DATE}}",
+  end_date: "{{END_DATE}}",
+  kind: "business",                 // business | leisure
+  timezone: "{{TIMEZONE}}",
+  generated_at: "{{GENERATED_AT}}",
+  last_sweep: "{{LAST_SWEEP}}",
+  next_run: "{{NEXT_RUN}}",
+  expense_sheet_url: "{{EXPENSE_SHEET_URL}}",
+
+  // Each day of the trip
+  days: [
+    // {
+    //   date: "2026-05-12",
+    //   label: "Tue",
+    //   items: [
+    //     { time: "08:20", title: "Lufthansa LH440 MCI → FRA",
+    //       detail: "Confirmation AB12CD · Seat 14A · Terminal B", tag: "flight" }
+    //   ]
+    // }
+  ],
+
+  flights: [],
+  lodging: [],
+  ground: [],
+  reservations: [],
+  contacts: [
+    // { label: "Hotel front desk", value: "+49 ..." },
+    // { label: "US Embassy Frankfurt", value: "+49 ..." },
+    // { label: "Local emergency", value: "112" }
+  ],
+
+  coffee: [],
+  restaurants: [],
+  events: [],
+
+  safety: {
+    state_dept: { level: 1, text: "", as_of: "", url: "" },
+    cdc: { level: "none", text: "", as_of: "", url: "" },
+    weather: { summary: "", as_of: "" },
+    local_news: [],
+    hospitals: [],
+    embassy: ""
+  },
+
+  international: {
+    applicable: false,
+    passport_status: "ok",    // ok | warn | bad
+    passport_note: "",
+    visa: "",
+    currency: "",
+    fx_rate_usd: "",
+    fx_as_of: "",
+    tipping: "",
+    plug_type: "",
+    sim_notes: "",
+    phrasebook: []            // [{ phrase: "", local: "" }]
+  },
+
+  // Business trip receipt tracking. Atlas appends each day after last_day
+  // with a single lodging row; meals and ground render daily across days.
+  receipts: {
+    airfare: { required: true, captured: false, vendor: "", amount: "", currency: "USD", at: "" },
+    lodging: { required: true, captured: false, vendor: "", amount: "", currency: "USD", at: "" },
+    days: [
+      // {
+      //   date: "2026-05-13",
+      //   meals: { breakfast: false, lunch: false, dinner: false },
+      //   ground: [{ mode: "taxi", captured: false, amount: "", currency: "USD" }]
+      // }
+    ]
+  },
+
+  packing: []   // [{ item: "Passport", done: false, why: "International trip" }]
+};
+// ----------------------------------------------------------------------------
+
+function el(tag, attrs = {}, children = []) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v;
+    else if (k === "html") e.innerHTML = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  (Array.isArray(children) ? children : [children]).forEach(c => {
+    if (c == null) return;
+    e.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  });
+  return e;
+}
+
+function renderItinerary() {
+  const root = document.getElementById("itinerary-root");
+  root.innerHTML = "";
+  if (!TRIP.days.length) {
+    root.appendChild(el("p", { class: "dates" }, "No itinerary items yet. Atlas will populate as TripIt messages arrive."));
+    return;
+  }
+  TRIP.days.forEach(day => {
+    root.appendChild(el("h3", { style: "margin:12px 0 6px;font-size:14px;color:var(--ink-dim)" },
+      `${day.label} · ${day.date}`));
+    const ul = el("ul", { class: "clean" });
+    day.items.forEach(item => {
+      ul.appendChild(el("li", { class: "row" }, [
+        el("div", { class: "when" }, item.time || "-"),
+        el("div", { class: "what" }, [
+          el("b", {}, item.title || ""),
+          item.detail ? el("small", {}, item.detail) : null,
+          item.tag ? el("div", {}, el("span", { class: "pill" }, item.tag)) : null
+        ])
+      ]));
+    });
+    root.appendChild(ul);
+  });
+}
+
+function renderTable(rootId, rows, columns) {
+  const root = document.getElementById(rootId);
+  root.innerHTML = "";
+  if (!rows.length) {
+    root.appendChild(el("p", { class: "dates" }, "Nothing captured yet."));
+    return;
+  }
+  rows.forEach(r => {
+    const dl = el("dl", { class: "kv" });
+    columns.forEach(([label, key]) => {
+      if (r[key] == null || r[key] === "") return;
+      dl.appendChild(el("dt", {}, label));
+      dl.appendChild(el("dd", {}, String(r[key])));
+    });
+    root.appendChild(dl);
+    root.appendChild(el("hr", { class: "sep" }));
+  });
+}
+
+function renderContacts() {
+  const root = document.getElementById("contacts");
+  root.innerHTML = "";
+  if (!TRIP.contacts.length) {
+    root.appendChild(el("p", { class: "dates" }, "Atlas has not captured contacts yet."));
+    return;
+  }
+  const dl = el("dl", { class: "kv" });
+  TRIP.contacts.forEach(c => {
+    dl.appendChild(el("dt", {}, c.label));
+    dl.appendChild(el("dd", {}, c.value));
+  });
+  root.appendChild(dl);
+}
+
+function renderEDC() {
+  const render = (rootId, list, emptyText) => {
+    const root = document.getElementById(rootId);
+    root.innerHTML = "";
+    if (!list.length) { root.appendChild(el("p", { class: "dates" }, emptyText)); return; }
+    list.forEach(item => {
+      root.appendChild(el("div", { class: "check" }, [
+        el("div", { class: "text" }, [
+          el("b", {}, item.name || ""),
+          item.note ? el("small", {}, item.note) : null
+        ]),
+        item.url ? el("a", { href: item.url, target: "_blank", rel: "noopener" }, "Open") : null
+      ]));
+    });
+  };
+  render("coffee", TRIP.coffee, "No coffee shortlist yet.");
+  render("restaurants", TRIP.restaurants, "No restaurant recommendations yet.");
+  render("events", TRIP.events, "No matching events on your dates yet.");
+}
+
+function renderSafety() {
+  const root = document.getElementById("safety-root");
+  root.innerHTML = "";
+  const s = TRIP.safety;
+
+  const levelPill = lvl => {
+    const cls = lvl >= 3 ? "bad" : lvl === 2 ? "warn" : "ok";
+    return el("span", { class: `pill ${cls}` }, `Level ${lvl}`);
+  };
+
+  root.appendChild(el("div", { class: "alert " + (s.state_dept.level >= 3 ? "bad" : s.state_dept.level === 2 ? "warn" : "ok") },
+    `State Dept: ${s.state_dept.text || "-"}`));
+  root.appendChild(el("p", { class: "dates" }, `As of ${s.state_dept.as_of || "-"}`));
+
+  if (s.cdc.text) {
+    root.appendChild(el("div", { class: "alert warn" }, `CDC: ${s.cdc.text}`));
+  }
+  if (s.weather.summary) {
+    root.appendChild(el("p", {}, [el("b", {}, "Weather: "), s.weather.summary]));
+  }
+  if (s.local_news.length) {
+    const ul = el("ul", { class: "clean" });
+    s.local_news.forEach(n => ul.appendChild(el("li", { class: "row" }, [
+      el("div", { class: "when" }, n.as_of || ""),
+      el("div", { class: "what" }, [el("b", {}, n.headline), n.note ? el("small", {}, n.note) : null])
+    ])));
+    root.appendChild(el("h3", { style: "margin:12px 0 6px;font-size:14px;color:var(--ink-dim)" }, "Local alerts"));
+    root.appendChild(ul);
+  }
+  if (s.embassy || s.hospitals.length) {
+    const dl = el("dl", { class: "kv" });
+    if (s.embassy) { dl.appendChild(el("dt", {}, "Embassy")); dl.appendChild(el("dd", {}, s.embassy)); }
+    s.hospitals.forEach(h => { dl.appendChild(el("dt", {}, "Hospital")); dl.appendChild(el("dd", {}, h)); });
+    root.appendChild(dl);
+  }
+}
+
+function renderIntl() {
+  const root = document.getElementById("intl-root");
+  root.innerHTML = "";
+  const i = TRIP.international;
+  if (!i.applicable) {
+    root.appendChild(el("p", { class: "dates" }, "Domestic trip; international details not applicable."));
+    return;
+  }
+  const passportCls = i.passport_status === "bad" ? "bad" : i.passport_status === "warn" ? "warn" : "ok";
+  root.appendChild(el("div", { class: "alert " + passportCls }, `Passport: ${i.passport_note || "-"}`));
+  const dl = el("dl", { class: "kv" });
+  const add = (k, v) => { if (v) { dl.appendChild(el("dt", {}, k)); dl.appendChild(el("dd", {}, v)); } };
+  add("Visa", i.visa);
+  add("Currency", i.currency);
+  add("FX (USD)", `${i.fx_rate_usd || "-"} (as of ${i.fx_as_of || "-"})`);
+  add("Tipping", i.tipping);
+  add("Plug", i.plug_type);
+  add("SIM / eSIM", i.sim_notes);
+  root.appendChild(dl);
+  if (i.phrasebook && i.phrasebook.length) {
+    root.appendChild(el("h3", { style: "margin:12px 0 6px;font-size:14px;color:var(--ink-dim)" }, "Phrasebook"));
+    const pb = el("dl", { class: "kv" });
+    i.phrasebook.forEach(p => {
+      pb.appendChild(el("dt", {}, p.phrase));
+      pb.appendChild(el("dd", {}, p.local));
+    });
+    root.appendChild(pb);
+  }
+}
+
+function renderReceipts() {
+  const root = document.getElementById("receipts-root");
+  const linkRow = document.getElementById("expense-link-row");
+  root.innerHTML = "";
+  linkRow.innerHTML = "";
+  if (TRIP.kind !== "business") {
+    root.appendChild(el("p", { class: "dates" }, "Leisure trip; receipt capture is off."));
+    return;
+  }
+  if (TRIP.expense_sheet_url) {
+    linkRow.appendChild(el("a", { href: TRIP.expense_sheet_url, target: "_blank", rel: "noopener" }, "Open expense sheet →"));
+  }
+
+  const check = (label, sub, done) => el("div", { class: "check" + (done ? " done" : "") }, [
+    el("div", { class: "box" }),
+    el("div", { class: "text" }, [el("b", {}, label), sub ? el("small", {}, sub) : null])
+  ]);
+
+  // Airfare (pre-trip)
+  const af = TRIP.receipts.airfare;
+  root.appendChild(el("h3", { style: "margin:6px 0;font-size:14px;color:var(--ink-dim)" }, "Pre-departure"));
+  root.appendChild(check("Airfare receipt", af.captured ? `${af.vendor} · ${af.currency} ${af.amount}` : "Upload when purchased", af.captured));
+
+  // Per-day receipts
+  TRIP.receipts.days.forEach(day => {
+    root.appendChild(el("h3", { style: "margin:14px 0 6px;font-size:14px;color:var(--ink-dim)" }, `${day.date}`));
+    const m = day.meals || {};
+    root.appendChild(check("Breakfast", "", m.breakfast));
+    root.appendChild(check("Lunch", "", m.lunch));
+    root.appendChild(check("Dinner", "", m.dinner));
+    (day.ground || []).forEach(g => {
+      root.appendChild(check(
+        `Ground transport (${g.mode || "taxi"})`,
+        g.captured ? `${g.currency} ${g.amount}` : "Rideshare / taxi / fuel / parking",
+        g.captured
+      ));
+    });
+  });
+
+  // Lodging on final day
+  const lg = TRIP.receipts.lodging;
+  root.appendChild(el("h3", { style: "margin:14px 0 6px;font-size:14px;color:var(--ink-dim)" }, `Final day (${TRIP.end_date})`));
+  root.appendChild(check("Hotel folio", lg.captured ? `${lg.vendor} · ${lg.currency} ${lg.amount}` : "Upload at check-out", lg.captured));
+}
+
+function renderPacking() {
+  const root = document.getElementById("packing-root");
+  root.innerHTML = "";
+  if (!TRIP.packing.length) {
+    root.appendChild(el("p", { class: "dates" }, "No trip-specific items yet. Atlas only lists unique needs, not a full packing inventory."));
+    return;
+  }
+  TRIP.packing.forEach(p => {
+    root.appendChild(el("div", { class: "check" + (p.done ? " done" : "") }, [
+      el("div", { class: "box" }),
+      el("div", { class: "text" }, [el("b", {}, p.item || ""), p.why ? el("small", {}, p.why) : null])
+    ]));
+  });
+}
+
+// Tab highlighting on scroll
+function wireTabs() {
+  const tabs = Array.from(document.querySelectorAll("nav.tabs a"));
+  const sections = tabs.map(t => document.querySelector(t.getAttribute("href")));
+  const onScroll = () => {
+    let idx = 0;
+    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 160) idx = i; });
+    tabs.forEach((t, i) => t.classList.toggle("active", i === idx));
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  tabs.forEach(t => t.addEventListener("click", () => setTimeout(onScroll, 50)));
+}
+
+function renderAll() {
+  document.getElementById("trip-title").textContent = TRIP.destination || "Trip";
+  const days = (() => {
+    if (!TRIP.start_date || !TRIP.end_date) return "-";
+    const a = new Date(TRIP.start_date), b = new Date(TRIP.end_date);
+    return Math.max(1, Math.round((b - a) / 86400000) + 1);
+  })();
+  document.getElementById("trip-dates").textContent =
+    `${TRIP.start_date || "-"} → ${TRIP.end_date || "-"} · ${days} days`;
+  document.getElementById("generated-at").textContent = TRIP.generated_at || "-";
+  document.getElementById("last-sweep").textContent = TRIP.last_sweep || "-";
+  document.getElementById("next-run").textContent = TRIP.next_run || "-";
+
+  renderItinerary();
+  renderTable("flights", TRIP.flights, [
+    ["Segment", "segment"], ["Carrier", "carrier"], ["Flight", "flight"],
+    ["Departure", "dep"], ["Arrival", "arr"], ["Confirmation", "confirmation"], ["Seat", "seat"]
+  ]);
+  renderTable("lodging", TRIP.lodging, [
+    ["Hotel", "name"], ["Address", "address"], ["Check-in", "checkin"],
+    ["Check-out", "checkout"], ["Confirmation", "confirmation"], ["Wi-Fi", "wifi"]
+  ]);
+  renderTable("ground", TRIP.ground, [
+    ["When", "when"], ["From", "from"], ["To", "to"], ["Mode", "mode"],
+    ["Confirmation", "confirmation"], ["Cost", "cost"]
+  ]);
+  renderTable("reservations", TRIP.reservations, [
+    ["When", "when"], ["What", "what"], ["Where", "where"],
+    ["Confirmation", "confirmation"], ["Notes", "notes"]
+  ]);
+  renderContacts();
+  renderEDC();
+  renderSafety();
+  renderIntl();
+  renderReceipts();
+  renderPacking();
+  wireTabs();
+}
+
+renderAll();
+</script>
+</body>
+</html>
