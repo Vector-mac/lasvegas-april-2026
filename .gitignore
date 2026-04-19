@@ -1,0 +1,5 @@
+# Transient render candidate. Wrapper atomically mv's this to index.html after validation.
+.index.html.new
+
+# macOS
+.DS_Store
