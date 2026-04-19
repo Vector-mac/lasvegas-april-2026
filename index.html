@@ -1,295 +1,1100 @@
-<!--
-  Atlas mobile trip site. Las Vegas April 2026.
-  Brand: AI-First v1.0.
-  Status: populated. Last updated 2026-04-19.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1A1A1A">
-<title>Las Vegas Trip | April 23-26, 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0f">
+<title>Atlas · Vegas · Jarvis Mode</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--orange:#EE5A1F;--orange-ink:#B7390A;--charcoal:#1A1A1A;--navy:#0F1C2E;--bronze:#B08D57;--white:#FFFFFF;--gray-70:#595959;--gray-50:#8C8C8C;--gray-20:#D9D9D9;--gray-05:#F2F2F2;--status-green:#2F5D3A;--status-amber:#8F6B1C;--status-red:#A32929;--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--serif:'Source Serif 4',Georgia,'Times New Roman',serif;--radius:10px;--radius-lg:14px;--shadow-sm:0 1px 2px rgba(26,26,26,.06);--shadow-md:0 2px 10px rgba(26,26,26,.08);--max-w:640px}
-  *{box-sizing:border-box}html,body{margin:0;padding:0}
-  body{font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--charcoal);background:var(--gray-05);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  img,svg{display:block;max-width:100%}
-  a{color:var(--orange-ink);text-decoration:underline;text-underline-offset:2px}a:hover{color:var(--orange)}
-  .page{max-width:var(--max-w);margin:0 auto;padding:0 0 48px;background:var(--gray-05)}
-  .site-header{position:relative;color:var(--white);background:var(--charcoal);padding:28px 20px 32px;overflow:hidden}
-  .site-header .neural{position:absolute;inset:0;width:100%;height:100%;opacity:.22;pointer-events:none}
-  .site-header .brand-rule{display:inline-block;width:36px;height:3px;background:var(--orange);margin-bottom:14px}
-  .site-header h1{font-weight:800;letter-spacing:-.01em;font-size:28px;line-height:1.1;margin:0 0 6px}
-  .site-header .sub{font-size:14px;color:rgba(255,255,255,.78);margin:0;letter-spacing:.01em}
-  .site-header .controls{position:absolute;top:20px;right:20px;display:flex;gap:8px;align-items:center}
-  .status-pill{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:var(--white)}
-  .status-pill.green{background:var(--status-green);border-color:transparent}.status-pill.amber{background:var(--status-amber);border-color:transparent}.status-pill.red{background:var(--status-red);border-color:transparent}
-  .refresh-btn{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--orange);color:#fff;border:0;cursor:pointer}.refresh-btn:hover{background:var(--orange-ink)}
-  .glance{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--white);border-bottom:1px solid var(--gray-20)}
-  .glance .cell{padding:12px 10px;text-align:center;border-right:1px solid var(--gray-20)}.glance .cell:last-child{border-right:0}
-  .glance .k{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-70);margin-bottom:3px}
-  .glance .v{font-size:14px;font-weight:700;color:var(--charcoal)}
-  section{padding:20px}
-  .section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-70);margin:0 0 10px;display:flex;align-items:center;gap:8px}
-  .section-label::before{content:"";width:18px;height:2px;background:var(--orange)}
-  .section-heading{font-weight:700;font-size:20px;letter-spacing:-.01em;color:var(--charcoal);margin:0 0 14px}
-  .card{background:var(--white);border:1px solid var(--gray-20);border-radius:var(--radius-lg);padding:16px 16px 14px;box-shadow:var(--shadow-sm);margin-bottom:12px}
-  .card:last-child{margin-bottom:0}.card h3{font-size:16px;font-weight:700;margin:0 0 6px;color:var(--charcoal)}
-  .card .meta{font-size:12px;color:var(--gray-70);letter-spacing:.02em;margin-bottom:8px}.card p{margin:0 0 8px;color:var(--charcoal)}.card p:last-child{margin-bottom:0}
-  .weather{background:var(--navy);color:var(--white);border:0;padding:18px;border-radius:var(--radius-lg);display:flex;gap:14px;align-items:center;margin:0}
-  .weather .icon{font-size:28px;line-height:1;flex-shrink:0}.weather .txt{flex:1}
-  .weather .hdr{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:2px}
-  .weather .hi{font-size:16px;font-weight:700;margin-bottom:2px}.weather .note{font-size:13px;color:rgba(255,255,255,.85)}
-  .update{background:var(--white);border:1px solid var(--gray-20);border-left:4px solid var(--orange);border-radius:8px;padding:12px 14px;margin-bottom:10px}.update:last-child{margin-bottom:0}
-  .update .ts{font-size:12px;font-weight:700;color:var(--orange-ink);margin-bottom:4px;display:block;letter-spacing:.02em}.update p{margin:0;font-size:14px;color:var(--charcoal)}
-  .stack-list{list-style:none;padding:0;margin:0;background:var(--white);border:1px solid var(--gray-20);border-radius:var(--radius-lg);overflow:hidden}
-  .stack-list li{padding:12px 14px;border-bottom:1px solid var(--gray-20);font-size:14px;color:var(--charcoal);display:flex;gap:10px;align-items:flex-start}.stack-list li:last-child{border-bottom:0}
-  .stack-list li .marker{color:var(--orange);font-weight:700;font-size:14px;flex-shrink:0;width:16px}.stack-list li strong{font-weight:700}
-  .pro-tip{background:var(--white);border:1px solid var(--gray-20);border-left:4px solid var(--bronze);border-radius:8px;padding:12px 14px;font-size:14px;color:var(--charcoal)}
-  .pro-tip strong{font-weight:700}
-  .scaffold{background:var(--white);border:1px dashed var(--gray-50);border-radius:var(--radius-lg);padding:14px 16px;font-size:14px;color:var(--gray-70)}
-  .scaffold strong{color:var(--charcoal)}
-  .feature-card{background:var(--charcoal);color:var(--white);border-radius:var(--radius-lg);padding:20px;border-left:4px solid var(--orange)}
-  .feature-card .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:8px}
-  .feature-card h3{font-size:22px;font-weight:800;letter-spacing:-.01em;margin:0 0 6px;color:var(--white)}
-  .feature-card .when{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:14px}
-  .resto{position:relative}
-  .resto .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-  .resto h3{margin:0;color:var(--orange-ink);font-size:16px;font-weight:700}
-  .resto .rank{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-70);font-weight:700}
-  .resto .tags{font-size:12px;color:var(--gray-70);margin:4px 0 8px;letter-spacing:.01em}
-  .resto .desc{font-size:14px;color:var(--charcoal);margin:0 0 10px}
-  .top-pick-banner{display:inline-block;background:var(--orange);color:var(--white);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:8px}
-  .day-badge{background:var(--charcoal);color:var(--white);border-radius:8px;padding:8px 4px;text-align:center;font-weight:800;font-size:13px;letter-spacing:.06em;line-height:1.15}
-  .day-badge.accent{background:var(--orange)}
-  .day-badge .small{display:block;font-weight:600;font-size:10px;letter-spacing:.08em;opacity:.9;margin-top:2px}
-  .itinerary .day{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--gray-20)}
-  .itinerary .day:last-child{border-bottom:0}
-  .day-body h3{margin:0 0 4px;font-size:15px;font-weight:700;color:var(--charcoal)}
-  .day-body p{margin:2px 0;font-size:14px;color:var(--gray-70)}
-  .transit .card .route{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--charcoal);margin-bottom:10px}
-  .transit .card ul{padding-left:18px;margin:0 0 10px}
-  .transit .card ul li{font-size:14px;margin-bottom:4px;color:var(--charcoal)}
-  .transit .card ul li:last-child{margin-bottom:0}
-  footer{padding:24px 20px 8px;text-align:center;color:var(--gray-70);font-size:12px;letter-spacing:.02em}
-  footer .sig{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--charcoal);margin-top:6px}
-  footer .sig .dot{color:var(--orange)}
+  :root {
+    --bg: #0a0a0f; --bg-elev: #13131c; --bg-elev-2: #1b1b26; --bg-elev-3: #22222e;
+    --border: #24242f; --border-bright: #33333f;
+    --text: #f0f0f5; --text-dim: #9a9aa8; --text-faint: #5a5a68;
+    --accent: #ff6b1a; --accent-bright: #ff9147; --accent-dim: rgba(255,107,26,0.12); --accent-border: rgba(255,107,26,0.35);
+    --success: #22c55e; --success-dim: rgba(34,197,94,0.12);
+    --warn: #f59e0b; --warn-dim: rgba(245,158,11,0.12);
+    --danger: #ef4444; --info: #3b82f6; --info-dim: rgba(59,130,246,0.12);
+    --sphere: #a855f7; --sphere-dim: rgba(168,85,247,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
+  body { max-width: 440px; margin: 0 auto; padding: 0 0 100px; padding-top: env(safe-area-inset-top); position: relative; }
+  a { color: inherit; text-decoration: none; }
+  button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .hdr { padding: 14px 20px 8px; display: flex; align-items: center; justify-content: space-between; }
+  .hdr-left { display: flex; align-items: center; gap: 10px; }
+  .hdr-logo { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-bright)); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; color: white; box-shadow: 0 0 20px rgba(255,107,26,0.3); }
+  .hdr-title { font-size: 12px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-dim); }
+  .hdr-title .accent { color: var(--accent); }
+  .hdr-right { display: flex; align-items: center; gap: 8px; }
+  .budget-pill { font-size: 10px; font-weight: 700; padding: 5px 9px; border-radius: 999px; background: var(--success-dim); color: var(--success); letter-spacing: 0.4px; cursor: pointer; border: 1px solid rgba(34,197,94,0.2); }
+  .live-ind { font-size: 10px; color: var(--text-faint); display: flex; align-items: center; gap: 5px; letter-spacing: 0.4px; text-transform: uppercase; font-weight: 600; }
+  .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.6); } 50% { opacity: 0.5; box-shadow: 0 0 0 4px rgba(34,197,94,0); } }
+
+  .locbar { padding: 8px 20px 4px; }
+  .locbar-label { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .locbar-label::before { content: '◉'; color: var(--accent); animation: pulse 2s infinite; }
+  .loc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 4px; }
+  .loc-btn { padding: 8px 4px; text-align: center; font-size: 11px; font-weight: 600; color: var(--text-dim); border-radius: 7px; cursor: pointer; transition: all 0.2s; }
+  .loc-btn .loc-ic { font-size: 14px; display: block; margin-bottom: 2px; }
+  .loc-btn.active { background: var(--accent); color: #0a0a0f; }
+  .loc-btn:not(.active):active { background: var(--bg-elev-2); }
+
+  .hero { padding: 14px 20px 18px; border-bottom: 1px solid var(--border); transition: all 0.3s; }
+  .hero-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-dim); font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; }
+  .hero-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-faint); }
+  .hero-date { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin-top: 4px; line-height: 1.05; }
+  .hero-sub { font-size: 13px; color: var(--text-dim); margin-top: 6px; }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-chips { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; font-size: 11px; font-weight: 600; color: var(--text-dim); letter-spacing: 0.3px; }
+  .chip .chip-val { color: var(--text); }
+
+  .next-up { margin: 16px 20px; background: linear-gradient(135deg, rgba(255,107,26,0.15), rgba(255,107,26,0.04)); border: 1px solid var(--accent-border); border-radius: 16px; padding: 16px; position: relative; overflow: hidden; transition: all 0.3s; }
+  .next-up::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(255,107,26,0.25), transparent 65%); pointer-events: none; }
+  .next-up-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; position: relative; }
+  .next-up-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+  .next-up-label::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+  .next-up-countdown { font-size: 11px; font-weight: 600; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+  .next-up-title { font-size: 19px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; position: relative; }
+  .next-up-detail { font-size: 13px; color: var(--text-dim); margin-bottom: 14px; line-height: 1.45; position: relative; }
+  .next-up-detail strong { color: var(--text); }
+  .next-up-actions { display: flex; gap: 6px; position: relative; }
+  .btn { flex: 1; padding: 10px 8px; background: var(--bg-elev); border: 1px solid var(--border-bright); border-radius: 9px; font-size: 12px; font-weight: 600; text-align: center; display: flex; align-items: center; justify-content: center; gap: 5px; transition: all 0.15s; }
+  .btn:active { transform: scale(0.97); background: var(--bg-elev-2); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #0a0a0f; }
+
+  .section { padding: 8px 20px 4px; }
+  .section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding-top: 12px; }
+  .section-title { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-dim); }
+  .section-action { font-size: 11px; color: var(--text-faint); font-weight: 600; letter-spacing: 0.3px; }
+
+  .heads-up { margin: 0 20px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .hu-item { padding: 13px 16px; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; cursor: pointer; transition: background 0.15s; }
+  .hu-item:last-child { border-bottom: none; }
+  .hu-item:active { background: var(--bg-elev-2); }
+  .hu-icon { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+  .hu-icon.warn { background: var(--warn-dim); color: var(--warn); }
+  .hu-icon.info { background: var(--info-dim); color: var(--info); }
+  .hu-icon.sphere { background: var(--sphere-dim); color: var(--sphere); }
+  .hu-icon.accent { background: var(--accent-dim); color: var(--accent); }
+  .hu-body { flex: 1; }
+  .hu-title { font-size: 14px; font-weight: 600; line-height: 1.35; }
+  .hu-note { font-size: 12px; color: var(--text-dim); margin-top: 3px; line-height: 1.45; }
+  .hu-reasoning { margin-top: 8px; font-size: 11px; color: var(--text-dim); padding: 10px 12px; background: var(--bg); border-radius: 6px; border-left: 2px solid var(--accent); display: none; line-height: 1.55; }
+  .hu-reasoning.open { display: block; }
+  .hu-reasoning strong { color: var(--text); }
+
+  .timeline { position: relative; }
+  .tl-item { position: relative; padding-left: 22px; padding-bottom: 16px; }
+  .tl-item::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: -2px; width: 1px; background: var(--border); }
+  .tl-item:last-child::before { display: none; }
+  .tl-dot { position: absolute; left: 0; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 2px solid var(--text-faint); }
+  .tl-dot.now { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); animation: pulse 2s infinite; }
+  .tl-dot.done { background: var(--text-faint); border-color: var(--text-faint); }
+  .tl-dot.done::after { content: '✓'; position: absolute; top: -4px; left: 1px; font-size: 9px; color: var(--bg); font-weight: 700; }
+  .tl-time { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; margin-bottom: 2px; }
+  .tl-time.now { color: var(--accent); }
+  .tl-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .tl-title.done { color: var(--text-faint); text-decoration: line-through; }
+  .tl-note { font-size: 12px; color: var(--text-dim); margin-top: 3px; line-height: 1.4; }
+
+  .venues { display: flex; flex-direction: column; gap: 10px; padding: 0 20px; }
+  .venue { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; transition: all 0.2s; }
+  .venue-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .venue-name { font-size: 15px; font-weight: 700; }
+  .venue-name a { display: inline-flex; align-items: center; gap: 4px; }
+  .venue-tags { font-size: 11px; color: var(--text-faint); margin-top: 3px; font-weight: 500; }
+  .venue-tags .tag-pipe { color: #30303a; margin: 0 6px; }
+  .venue-desc { font-size: 13px; color: var(--text-dim); margin-top: 8px; line-height: 1.45; }
+  .venue-why { font-size: 12px; color: var(--accent); margin-top: 8px; font-weight: 500; display: flex; align-items: flex-start; gap: 6px; cursor: pointer; }
+  .venue-why::before { content: '▸'; font-size: 10px; transition: transform 0.2s; flex-shrink: 0; margin-top: 2px; }
+  .venue-why.open::before { transform: rotate(90deg); }
+  .venue-reasoning { font-size: 11px; color: var(--text-dim); margin-top: 8px; padding: 10px 12px; background: var(--bg); border-radius: 6px; border-left: 2px solid var(--accent); display: none; line-height: 1.55; }
+  .venue-reasoning.open { display: block; }
+  .venue-reasoning ul { margin: 4px 0 0 14px; padding: 0; }
+  .venue-reasoning li { margin-bottom: 3px; }
+  .venue-reasoning strong { color: var(--text); }
+  .venue-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); gap: 8px; }
+  .venue-status { font-size: 11px; color: var(--text-faint); font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .status-dot.open { background: var(--success); }
+  .status-dot.tight { background: var(--warn); }
+  .venue-actions { display: flex; gap: 6px; align-items: center; }
+  .vote-btn { width: 30px; height: 30px; border-radius: 7px; background: var(--bg-elev-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; transition: all 0.15s; }
+  .vote-btn:active { transform: scale(0.88); }
+  .vote-btn.up.voted { background: var(--success-dim); border-color: var(--success); }
+  .vote-btn.down.voted { background: rgba(239,68,68,0.12); border-color: var(--danger); }
+  .book-btn { padding: 7px 12px; background: var(--accent); color: #0a0a0f; border-radius: 7px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px; }
+  .book-btn.booked { background: var(--success-dim); color: var(--success); border: 1px solid var(--success); }
+
+  .memory { margin: 0 20px; background: linear-gradient(180deg, var(--bg-elev), var(--bg-elev-2)); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+  .mem-list { display: flex; flex-direction: column; gap: 8px; }
+  .mem-row { font-size: 12px; color: var(--text-dim); line-height: 1.4; display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; background: var(--bg); border-radius: 7px; border-left: 2px solid var(--accent); }
+  .mem-row strong { color: var(--text); font-weight: 600; }
+  .mem-row .mem-ic { flex-shrink: 0; font-size: 11px; color: var(--accent); margin-top: 1px; }
+
+  .feed { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; margin: 0 20px; }
+  .feed-item { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-ts { font-size: 10px; color: var(--text-faint); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; margin-bottom: 3px; }
+  .feed-msg { font-size: 13px; color: var(--text); line-height: 1.45; }
+  .feed-msg .tag { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; margin-right: 6px; vertical-align: 1px; }
+  .tag-new { background: var(--success-dim); color: var(--success); }
+  .tag-upd { background: var(--info-dim); color: var(--info); }
+  .tag-alert { background: var(--warn-dim); color: var(--warn); }
+  .tag-act { background: var(--accent-dim); color: var(--accent); }
+
+  .tomorrow { margin: 16px 20px; padding: 16px; background: linear-gradient(180deg, var(--bg-elev), var(--bg-elev-2)); border: 1px solid var(--border-bright); border-radius: 16px; }
+  .tm-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-dim); }
+  .tm-date { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+  .tm-hero { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding: 12px; background: var(--bg); border-radius: 10px; border: 1px solid var(--border); }
+  .tm-hero-icon { font-size: 26px; }
+  .tm-hero-t { font-size: 13px; font-weight: 600; }
+  .tm-hero-s { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .tm-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .tm-row { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; }
+  .tm-row-ic { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; background: var(--bg); border: 1px solid var(--border); }
+  .tm-row-t { flex: 1; line-height: 1.4; }
+  .tm-row-t strong { font-weight: 600; }
+  .tm-row-t .hl { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; }
+  .tm-alarm { margin-top: 14px; padding: 12px 14px; background: rgba(255,107,26,0.08); border: 1px dashed var(--accent-border); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; }
+  .tm-alarm-l { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .tm-alarm-btn { padding: 7px 12px; background: var(--accent); color: #0a0a0f; border-radius: 7px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
+  .tm-alarm-btn.set { background: var(--success-dim); color: var(--success); border: 1px solid var(--success); }
+
+  .flight { margin: 0 20px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+  .flight-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .flight-num { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+  .flight-status { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; }
+  .flight-status.on { background: var(--success-dim); color: var(--success); }
+  .flight-body { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .flight-side { flex: 1; }
+  .flight-code { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+  .flight-time { font-size: 13px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-weight: 600; margin-top: 2px; }
+  .flight-city { font-size: 10px; color: var(--text-faint); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px; font-weight: 600; }
+  .flight-mid-line { position: relative; width: 40px; height: 1px; background: var(--text-faint); }
+  .flight-mid-line::after { content: '✈'; position: absolute; top: -9px; right: -4px; font-size: 12px; color: var(--accent); }
+
+  .action-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 440px; margin: 0 auto; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border); display: flex; gap: 8px; z-index: 50; }
+  .voice-btn { flex: 1; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #0a0a0f; border-radius: 12px; font-size: 14px; font-weight: 700; letter-spacing: 0.3px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 20px rgba(255,107,26,0.3); }
+  .voice-btn:active { transform: scale(0.98); }
+  .mic-ic { width: 16px; height: 16px; }
+
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 100; display: none; align-items: flex-end; justify-content: center; }
+  .modal-bg.open { display: flex; }
+  .modal { width: 100%; max-width: 440px; background: var(--bg-elev); border-top: 1px solid var(--border-bright); border-radius: 20px 20px 0 0; padding: 16px 20px calc(20px + env(safe-area-inset-bottom)); max-height: 85vh; overflow-y: auto; animation: slideUp 0.3s cubic-bezier(0.2, 0.9, 0.3, 1); }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .modal-grab { width: 40px; height: 4px; background: var(--border-bright); border-radius: 2px; margin: 0 auto 14px; }
+  .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .modal-title { font-size: 16px; font-weight: 700; }
+  .modal-close { width: 30px; height: 30px; border-radius: 8px; background: var(--bg-elev-2); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 14px; }
+
+  .voice-status { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .voice-status .pulse { width: 8px; height: 8px; }
+  .voice-heard { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
+  .voice-heard-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 4px; }
+  .voice-heard-text { font-size: 14px; color: var(--text); font-style: italic; }
+  .voice-thinking { display: flex; align-items: center; gap: 10px; padding: 14px; color: var(--text-dim); font-size: 13px; }
+  .thinking-dots { display: inline-flex; gap: 3px; }
+  .thinking-dots span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: bounce 1.4s infinite; }
+  .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-6px); opacity: 1; } }
+  .voice-response { font-size: 14px; line-height: 1.6; color: var(--text); white-space: pre-wrap; }
+  .voice-prompts { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .voice-prompt { padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; color: var(--text-dim); cursor: pointer; transition: all 0.15s; }
+  .voice-prompt:active { background: var(--bg-elev-2); border-color: var(--border-bright); color: var(--text); }
+  .voice-prompt-label { font-size: 9px; font-weight: 700; letter-spacing: 0.8px; color: var(--text-faint); text-transform: uppercase; margin-bottom: 3px; }
+
+  .act-list { display: flex; flex-direction: column; gap: 8px; }
+  .act-opt { padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  .act-opt:active { background: var(--bg-elev-2); }
+  .act-opt-ic { font-size: 20px; }
+  .act-opt-body { flex: 1; }
+  .act-opt-t { font-size: 14px; font-weight: 600; }
+  .act-opt-s { font-size: 11px; color: var(--text-dim); margin-top: 2px; line-height: 1.35; }
+
+  .toast { position: fixed; top: 16px; left: 16px; right: 16px; max-width: 410px; margin: 0 auto; background: var(--bg-elev-2); border: 1px solid var(--accent-border); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; z-index: 200; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transform: translateY(-120%); transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1); }
+  .toast.show { transform: translateY(0); }
+  .toast-ic { width: 28px; height: 28px; border-radius: 7px; background: var(--accent-dim); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .toast-body { flex: 1; font-size: 13px; line-height: 1.3; }
+  .toast-body strong { color: var(--text); }
+
+  .foot { padding: 24px 20px 20px; text-align: center; }
+  .foot-sig { font-size: 11px; color: var(--text-faint); letter-spacing: 0.5px; }
+  .foot-sig .accent { color: var(--accent); font-weight: 700; }
+  .foot-upd { font-size: 10px; color: var(--text-faint); margin-top: 4px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px; }
+
+  [data-loc] { display: none; }
+  [data-loc].visible { display: block; }
+
+  .phase-banner { margin: 12px 20px 0; padding: 8px 12px; background: linear-gradient(90deg, rgba(168,85,247,0.1), rgba(59,130,246,0.1)); border: 1px solid rgba(168,85,247,0.25); border-radius: 10px; font-size: 11px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+  .phase-banner strong { color: var(--sphere); font-weight: 700; }
 </style>
 </head>
 <body>
-<main class="page">
 
-  <header class="site-header">
-    <svg class="neural" viewBox="0 0 640 220" preserveAspectRatio="none" aria-hidden="true">
-      <g stroke="#ffffff" stroke-width="1" fill="#ffffff">
-        <line x1="60" y1="40" x2="180" y2="90"/><line x1="180" y1="90" x2="300" y2="50"/>
-        <line x1="300" y1="50" x2="420" y2="110"/><line x1="420" y1="110" x2="560" y2="70"/>
-        <line x1="180" y1="90" x2="240" y2="170"/><line x1="240" y1="170" x2="360" y2="160"/>
-        <line x1="360" y1="160" x2="420" y2="110"/><line x1="360" y1="160" x2="520" y2="180"/>
-        <line x1="520" y1="180" x2="560" y2="70"/><line x1="60" y1="40" x2="120" y2="140"/>
-        <line x1="120" y1="140" x2="240" y2="170"/>
-        <circle cx="60" cy="40" r="5"/><circle cx="180" cy="90" r="7"/><circle cx="300" cy="50" r="4"/>
-        <circle cx="420" cy="110" r="8"/><circle cx="560" cy="70" r="5"/><circle cx="240" cy="170" r="6"/>
-        <circle cx="360" cy="160" r="5"/><circle cx="520" cy="180" r="4"/><circle cx="120" cy="140" r="4"/>
-      </g>
-    </svg>
-    <span class="brand-rule" aria-hidden="true"></span>
-    <h1>Las Vegas Trip</h1>
-    <p class="sub">April 23-26, 2026 &middot; Jeff (business)</p>
-    <div class="controls">
-      <span class="status-pill green">Confirmed</span>
-      <button type="button" class="refresh-btn" onclick="location.reload()">Refresh</button>
+<div class="toast" id="toast">
+  <div class="toast-ic" id="toastIc">✓</div>
+  <div class="toast-body" id="toastBody"><strong>Done</strong></div>
+</div>
+
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="hdr-logo">A</div>
+    <div class="hdr-title">Atlas · <span class="accent">Jarvis Mode</span></div>
+  </div>
+  <div class="hdr-right">
+    <button class="budget-pill" onclick="openBudget()">◆ $342 / $500</button>
+    <div class="live-ind"><span class="pulse"></span> Live</div>
+  </div>
+</div>
+
+<div class="phase-banner">
+  <strong>DEMO</strong> · Tap location to reshape · Tap mic for voice · Tap ▸ for reasoning
+</div>
+
+<div class="locbar">
+  <div class="locbar-label">You are at</div>
+  <div class="loc-grid">
+    <button class="loc-btn active" data-set-loc="hotel"><span class="loc-ic">🏨</span>Hotel</button>
+    <button class="loc-btn" data-set-loc="venue"><span class="loc-ic">🎤</span>Venue</button>
+    <button class="loc-btn" data-set-loc="offsite"><span class="loc-ic">🚗</span>Off-site</button>
+    <button class="loc-btn" data-set-loc="airport"><span class="loc-ic">✈️</span>Airport</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span>Day 2 of 4</span><span class="dot"></span><span id="ctxLabel">At New York-New York</span>
+  </div>
+  <div class="hero-date">Wed, Apr 22</div>
+  <div class="hero-sub" id="heroSub">Opening keynote at <strong>9:00 AM</strong>. Badge in hand from last night. You're ahead of the crowd.</div>
+  <div class="hero-chips">
+    <span class="chip">☀️ <span class="chip-val">78°F</span></span>
+    <span class="chip">💨 <span class="chip-val">9 mph</span></span>
+    <span class="chip">🏨 <span class="chip-val">NY-NY · Rm 2847</span></span>
+  </div>
+</div>
+
+<!-- HOTEL MODE -->
+<div data-loc="hotel" class="visible">
+
+  <div class="next-up">
+    <div class="next-up-head">
+      <div class="next-up-label">Next Up</div>
+      <div class="next-up-countdown">in 1h 42m</div>
     </div>
-  </header>
-
-  <div class="glance">
-    <div class="cell"><span class="k">Weather</span><span class="v">65-80°F</span></div>
-    <div class="cell"><span class="k">Local time</span><span class="v">PT</span></div>
-    <div class="cell"><span class="k">Currency</span><span class="v">USD</span></div>
-    <div class="cell"><span class="k">Days out</span><span class="v">T-4</span></div>
+    <div class="next-up-title">Walk to Mandalay Bay</div>
+    <div class="next-up-detail">Leave by <strong>8:15 AM</strong>. Tram from Excalibur is faster than walking in heat. ~15 min door to floor.</div>
+    <div class="next-up-actions">
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=New+York+New+York+Hotel+Las+Vegas&destination=Mandalay+Bay+Convention+Center&travelmode=walking">↗ Route</a>
+      <button class="btn" onclick="openActionSheet('rideshare')">🚗 Ride</button>
+      <button class="btn primary" onclick="toast('accent', '<strong>Alarm set</strong> · 8:10 AM')">⏰ Remind</button>
+    </div>
   </div>
 
-  <section>
-    <p class="section-label">Forecast</p>
-    <div class="weather card">
-      <span class="icon" aria-hidden="true">&#9728;&#65039;</span>
-      <div class="txt">
-        <div class="hdr">Weekend Forecast</div>
-        <div class="hi">65-80°F days, 50-60°F nights</div>
-        <div class="note">Dry desert air. Pack light layers and a light jacket for evenings. Hydration is critical.</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <p class="section-label">Atlas Updates</p>
-    <article class="update">
-      <span class="ts">April 19, 2026</span>
-      <p>T-minus 4 days. Trip confirmed. Flight and lodging details will populate once TripIt confirmations arrive. Phish at Sphere Thursday and Friday if interested.</p>
-    </article>
-  </section>
-
-  <section class="transit">
-    <p class="section-label">Airport Transit</p>
-    <article class="card">
-      <div class="route">
-        <span aria-hidden="true">&#9992;&#65039;</span>
-        <span>MCI to Las Vegas (LAS)</span>
-      </div>
-      <div class="meta">Domestic flight &middot; Pending confirmation</div>
-      <ul>
-        <li>Preferred: Southwest MCI to LAS</li>
-        <li>Thursday evening arrival typical</li>
-        <li>Sunday midday departure typical</li>
-      </ul>
-    </article>
-    <article class="card">
-      <div class="route">
-        <span aria-hidden="true">&#128661;</span>
-        <span>LAS Airport to Strip</span>
-      </div>
-      <div class="meta">Taxi/Rideshare &middot; $15-25</div>
-      <ul>
-        <li>Terminal 1: pickup at Level 2M</li>
-        <li>Terminal 3: pickup at Level 2</li>
-        <li>Strip hotels: 15-20 minutes</li>
-      </ul>
-    </article>
-    <article class="card">
-      <div class="route">
-        <span aria-hidden="true">&#128694;</span>
-        <span>In-City Transport</span>
-      </div>
-      <div class="meta">Walking + Rideshare</div>
-      <ul>
-        <li>The Strip is walkable but distances deceive</li>
-        <li>Use rideshare for anything north of Flamingo</li>
-        <li>After dark, rideshare recommended</li>
-      </ul>
-    </article>
-  </section>
-
-  <section class="itinerary">
-    <p class="section-label">Itinerary</p>
-    <h2 class="section-heading">Day by day</h2>
-    <div class="card" style="padding: 6px 16px;">
-      <div class="day">
-        <div class="day-badge">
-          THU<span class="small">4/23</span>
-        </div>
-        <div class="day-body">
-          <h3>Arrival</h3>
-          <p>Evening arrival typical for business pattern</p>
-          <p>Check-in and settle</p>
-        </div>
-      </div>
-      <div class="day">
-        <div class="day-badge accent">
-          FRI<span class="small">4/24</span>
-        </div>
-        <div class="day-body">
-          <h3>Business Day</h3>
-          <p>Business meetings</p>
-          <p>Phish at Sphere tonight if interested</p>
-        </div>
-      </div>
-      <div class="day">
-        <div class="day-badge accent">
-          SAT<span class="small">4/25</span>
-        </div>
-        <div class="day-body">
-          <h3>Business Day</h3>
-          <p>Business meetings</p>
-          <p>Free evening</p>
-        </div>
-      </div>
-      <div class="day">
-        <div class="day-badge">
-          SUN<span class="small">4/26</span>
-        </div>
-        <div class="day-body">
-          <h3>Departure</h3>
-          <p>Depart LAS</p>
-          <p>Midday departure typical</p>
+  <div class="section"><div class="section-head"><div class="section-title">⚡ Heads Up · 3 items</div></div></div>
+  <div class="heads-up">
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon sphere">◉</div>
+      <div class="hu-body">
+        <div class="hu-title">Phish Thursday conflicts with Next at Night</div>
+        <div class="hu-note">Book Phish Thursday tonight — Friday flight kills that option.</div>
+        <div class="hu-reasoning">
+          <strong>Why Atlas leans Phish:</strong><br>
+          • Last Vegas trip you skipped Sphere and mentioned it twice afterward<br>
+          • Next at Night = Weezer + Benson Boone (neither on your watchlist)<br>
+          • Sphere × Phish is a tier-1 experience in your memory<br>
+          • Thursday is the only viable night given your 3 PM Friday flight<br>
+          • Tickets trending +18% per day — book by 2 PM today
         </div>
       </div>
     </div>
-  </section>
-
-  <section>
-    <p class="section-label">Concert Details</p>
-    <article class="feature-card">
-      <div class="eyebrow">Yellow Alert</div>
-      <h3>Phish at Sphere</h3>
-      <div class="when">Thursday 4/23 & Friday 4/24 &middot; Sphere</div>
-      <p style="color:rgba(255,255,255,.85);font-size:14px;margin-bottom:12px;">Not a watchlist artist, but the Sphere experience is worth considering. The 16K resolution screen and immersive audio are the main draw.</p>
-      <p style="color:var(--orange);font-size:14px;font-weight:600;">Tickets from $74</p>
-    </article>
-  </section>
-
-  <section>
-    <p class="section-label">Tip</p>
-    <div class="pro-tip"><strong>Pro tip:</strong> The Strip is deceptive. What looks like a short walk can be 20+ minutes in desert heat. Use rideshare for anything north of Flamingo, especially after dark or in business attire.</div>
-  </section>
-
-  <section>
-    <p class="section-label">Dining</p>
-    <h2 class="section-heading">Ranked picks</h2>
-    <article class="card resto">
-      <span class="top-pick-banner">Top pick</span>
-      <div class="top-row">
-        <h3>SW Steakhouse at Wynn</h3>
-        <span class="rank">#1</span>
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon warn">!</div>
+      <div class="hu-body">
+        <div class="hu-title">Rollerbag ban at Mandalay Bay</div>
+        <div class="hu-note">Bags 12"×18" max. No wheels inside venue.</div>
+        <div class="hu-reasoning">
+          <strong>Implication for Friday:</strong><br>
+          • Don't plan to roll-and-go straight to final sessions<br>
+          • Use Friday luggage valet (see next card)<br>
+          • Or drop bags at NY-NY bell desk and Uber back
+        </div>
       </div>
-      <div class="tags">Strip &middot; Steakhouse &middot; Business dinner</div>
-      <p class="desc">Upscale steakhouse with Strip views. Reliable for business dinners. Ranks first for the combination of quality, atmosphere, and convenience for Strip meetings.</p>
-    </article>
-    <article class="card resto">
-      <div class="top-row">
-        <h3>Golden Steer</h3>
-        <span class="rank">#2</span>
+    </div>
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon info">i</div>
+      <div class="hu-body">
+        <div class="hu-title">Friday luggage valet · Michelob ULTRA Arena</div>
+        <div class="hu-note">6 AM – 5 PM. Solves the Friday scramble.</div>
+        <div class="hu-reasoning">
+          <strong>Friday plan Atlas has drafted:</strong><br>
+          • 9:30 AM — Check out of NY-NY<br>
+          • 10:00 AM — Drop bags at Mandalay valet<br>
+          • 10:30 AM to 1:00 PM — Closing sessions<br>
+          • 1:15 PM — Grab bags<br>
+          • 1:30 PM — Uber to LAS (5 min)<br>
+          • 3:00 PM — Southwest wheels-up
+        </div>
       </div>
-      <div class="tags">Old Vegas &middot; Steakhouse &middot; Historic</div>
-      <p class="desc">Old Vegas institution since 1958. Rat Pack history, classic atmosphere. Ranks below SW Steakhouse due to off-Strip location, but worth it for the experience.</p>
-    </article>
-    <article class="card resto">
-      <div class="top-row">
-        <h3>Carbone at Aria</h3>
-        <span class="rank">#3</span>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">📅 Today</div></div></div>
+  <div style="padding: 0 20px;">
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">6:45 AM</div><div class="tl-title done">Wake · alarm fired</div></div>
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">7:15 AM</div><div class="tl-title done">Coffee — Starbucks lobby</div></div>
+    <div class="tl-item"><div class="tl-dot now"></div><div class="tl-time now">8:15 AM · NOW</div><div class="tl-title">Leave for Mandalay Bay</div><div class="tl-note">NY-NY → pedestrian bridge → Excalibur → free tram → Mandalay. 15 min.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:00 AM</div><div class="tl-title">Opening Keynote · Thomas Kurian</div><div class="tl-note">Gemini + Vertex AI reveals. The one that matters for andi roadmap.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">11:30 AM</div><div class="tl-title">Lunch · Bayside C</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">1:00 PM</div><div class="tl-title">Breakout block</div><div class="tl-note">3 sessions reserved via Agenda Builder</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">5:30 PM</div><div class="tl-title">Expo close-out — Anthropic, Accenture</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">7:30 PM</div><div class="tl-title">Dinner · picks below</div></div>
+  </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">🍽 Tonight · 3 picks</div><div class="section-action">Solo · 7:30 PM</div></div></div>
+  <div class="venues">
+
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Gordon+Ramsay+Steak+Paris+Las+Vegas">Gordon Ramsay Steak ↗</a></div>
+          <div class="venue-tags">Steakhouse<span class="tag-pipe">·</span>$$$<span class="tag-pipe">·</span>Paris<span class="tag-pipe">·</span>8 min</div>
+        </div>
       </div>
-      <div class="tags">Strip &middot; Italian &middot; Scene-y</div>
-      <p class="desc">High-end Italian. Scene-y but the food delivers. Ranks third because it is more about the scene than the other two, though the pasta is excellent.</p>
-    </article>
-  </section>
+      <div class="venue-desc">Bar seating is the solo play — faster turn, full menu, same kitchen. Beef Wellington is the move.</div>
+      <div class="venue-why" onclick="toggleReasoning(this, true)">Why this over alternatives</div>
+      <div class="venue-reasoning">
+        Atlas weighed 14 steakhouses tonight:
+        <ul>
+          <li>Excluded <strong>Carbone</strong> — you voted 👎 in Miami (scene-y)</li>
+          <li>Excluded <strong>Delmonico</strong> — kitchen runs long, you hate 2h solo dinners</li>
+          <li>Excluded <strong>Golden Steer</strong> — 20 min rideshare each way, not worth it</li>
+          <li>Gordon Ramsay wins: bar seating open, 90-min solo benchmark from your Seattle trip</li>
+        </ul>
+      </div>
+      <div class="venue-foot">
+        <div class="venue-status"><span class="status-dot open"></span>Bar open · walk-in</div>
+        <div class="venue-actions">
+          <a class="vote-btn up" href="sms:jeff@danley.net?body=atlas-vote%3A%20Gordon%20Ramsay%20Steak%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="sms:jeff@danley.net?body=atlas-vote%3A%20Gordon%20Ramsay%20Steak%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
+          <button class="book-btn" onclick="bookVenue(this, 'Gordon Ramsay Steak · bar · 7:30 PM')">Book</button>
+        </div>
+      </div>
+    </div>
 
-  <section>
-    <p class="section-label">Coffee Spots</p>
-    <ul class="stack-list">
-      <li><span class="marker">&#9679;</span><span><strong>Vesta Coffee Roasters</strong> — Local third-wave, multiple locations</span></li>
-      <li><span class="marker">&#9679;</span><span><strong>Starbucks</strong> — Reliable fallback, nearest location TBD based on hotel</span></li>
-    </ul>
-  </section>
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Yardbird+Southern+Table+%26+Bar+Las+Vegas">Yardbird Southern ↗</a></div>
+          <div class="venue-tags">Southern<span class="tag-pipe">·</span>$$<span class="tag-pipe">·</span>Venetian<span class="tag-pipe">·</span>12 min</div>
+        </div>
+      </div>
+      <div class="venue-desc">Fried chicken + bourbon. Lower key than a steakhouse, still a real meal. Not a scene.</div>
+      <div class="venue-why" onclick="toggleReasoning(this, true)">Why this over alternatives</div>
+      <div class="venue-reasoning">
+        <ul>
+          <li>You've 👍'd comfort food solo on 4 of last 7 trips</li>
+          <li>OpenTable shows 7:45 PM bar or booth — same kitchen timing</li>
+          <li>Best value pick — keeps budget room for Phish tickets</li>
+          <li>Walkable rideshare pickup, not buried in Venetian</li>
+        </ul>
+      </div>
+      <div class="venue-foot">
+        <div class="venue-status"><span class="status-dot open"></span>OpenTable: 7:45 PM</div>
+        <div class="venue-actions">
+          <a class="vote-btn up" href="sms:jeff@danley.net?body=atlas-vote%3A%20Yardbird%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="sms:jeff@danley.net?body=atlas-vote%3A%20Yardbird%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
+          <button class="book-btn" onclick="bookVenue(this, 'Yardbird · 7:45 PM · 1 guest')">Book</button>
+        </div>
+      </div>
+    </div>
 
-  <section>
-    <p class="section-label">Local Tips</p>
-    <ul class="stack-list">
-      <li><span class="marker">&#9679;</span><span><strong>Hydrate:</strong> Dry heat accelerates dehydration. Carry water at all times.</span></li>
-      <li><span class="marker">&#9679;</span><span><strong>Cashless is fine:</strong> Cards accepted everywhere. Cash only for valet and housekeeping tips.</span></li>
-      <li><span class="marker">&#9679;</span><span><strong>Resort fees:</strong> Almost always extra. Atlas will break these out for expense reconciliation.</span></li>
-      <li><span class="marker">&#9679;</span><span><strong>Hotel preference:</strong> Marriott portfolio (Cosmopolitan, Bellagio, or Courtyard)</span></li>
-    </ul>
-  </section>
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Nine+Fine+Irishmen+New+York+New+York+Las+Vegas">Nine Fine Irishmen ↗</a></div>
+          <div class="venue-tags">Pub<span class="tag-pipe">·</span>$$<span class="tag-pipe">·</span>NY-NY<span class="tag-pipe">·</span>0 min</div>
+        </div>
+      </div>
+      <div class="venue-desc">In your hotel. Shepherd's pie, live music after 9. Fallback if keynote runs long.</div>
+      <div class="venue-foot">
+        <div class="venue-status"><span class="status-dot open"></span>Walk-in</div>
+        <div class="venue-actions">
+          <a class="vote-btn up" href="sms:jeff@danley.net?body=atlas-vote%3A%20Nine%20Fine%20Irishmen%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="sms:jeff@danley.net?body=atlas-vote%3A%20Nine%20Fine%20Irishmen%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
+          <button class="book-btn" onclick="bookVenue(this, 'Nine Fine Irishmen · walk-in')">Book</button>
+        </div>
+      </div>
+    </div>
 
-  <footer>
-    <div>Last updated: April 19, 2026</div>
-    <div>Tap Refresh for latest info.</div>
-    <div class="sig">Atlas<span class="dot">.</span> for Jeff</div>
-  </footer>
+  </div>
 
-</main>
+  <div class="section"><div class="section-head"><div class="section-title">🧠 What Atlas Has Learned</div><div class="section-action">67 trips</div></div></div>
+  <div class="memory">
+    <div class="mem-list">
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Solo bar seating</strong> preferred 9 of 11 last solo dinners. Defaulting to bar requests.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Coffee before meetings always.</strong> Never scheduling a meeting before first coffee window.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Avoid "scene" restaurants</strong> — 6 of last 8 👎 votes tagged this. Carbone, Beauty & Essex auto-excluded.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Day-4 conference fatigue</strong> pattern across 7 tech events. Friday evening in KC pre-blocked as rest.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Regret flag from last Vegas:</strong> skipped Sphere, mentioned twice. Not skipping this time.</div></div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">📡 Atlas Updates</div></div></div>
+  <div class="feed">
+    <div class="feed-item">
+      <div class="feed-ts">Wed · 7:14 AM</div>
+      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Drafted text to Marcie: "Keynote at 9 AM, good morning 💙". <button class="book-btn" style="margin-left:6px" onclick="toast('accent', '<strong>Sent</strong> to Marcie')">Send</button></div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Wed · 6:02 AM</div>
+      <div class="feed-msg"><span class="tag tag-new">NEW</span>Tonight's dinner picks refreshed. Added Yardbird after Carbone 👎 last trip.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Tue · 10:14 PM</div>
+      <div class="feed-msg"><span class="tag tag-alert">ALERT</span>Phish tickets up to $118 (from $95 yesterday). Trending +18%/day.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Tue · 8:22 PM</div>
+      <div class="feed-msg"><span class="tag tag-new">NEW</span>Badge pickup done. Avoided Wednesday 8 AM line.</div>
+    </div>
+  </div>
+
+  <div class="tomorrow">
+    <div class="tm-label">Thursday · Apr 23</div>
+    <div class="tm-date">Next Day 2 · Decision Day</div>
+
+    <div class="tm-hero">
+      <div class="tm-hero-icon">☀️</div>
+      <div>
+        <div class="tm-hero-t">Sunny · 80° / 59°</div>
+        <div class="tm-hero-s">Same as today. Same outfit works.</div>
+      </div>
+    </div>
+
+    <div class="tm-list">
+      <div class="tm-row"><div class="tm-row-ic">🎤</div><div class="tm-row-t">First session <span class="hl">8:30 AM</span>. Keep 6:45 AM alarm.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🎸</div><div class="tm-row-t"><strong>Decide by 2 PM:</strong> Phish vs Next at Night. Atlas leans Phish.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🎟</div><div class="tm-row-t">If Phish: book by <span class="hl">10 AM</span>. Price climbing.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🧳</div><div class="tm-row-t">Pre-pack Friday-non-essentials tonight.</div></div>
+    </div>
+
+    <div class="tm-alarm">
+      <div class="tm-alarm-l">⏰ Alarm · <span style="color: var(--accent)">6:45 AM</span></div>
+      <button class="tm-alarm-btn" onclick="setAlarm(this)">Set</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- VENUE MODE -->
+<div data-loc="venue">
+
+  <div class="next-up">
+    <div class="next-up-head">
+      <div class="next-up-label">Next Session</div>
+      <div class="next-up-countdown">in 12 min</div>
+    </div>
+    <div class="next-up-title">Building AI Agents on Vertex</div>
+    <div class="next-up-detail"><strong>West Hall · Breakout 3B</strong>. Leave the expo floor now — 6-min walk. Exit at the South doors past Anthropic booth.</div>
+    <div class="next-up-actions">
+      <button class="btn" onclick="toast('info', '<strong>Map opened</strong>')">🗺 Map</button>
+      <button class="btn" onclick="toast('info', '<strong>Notes ready</strong>')">📝 Notes</button>
+      <button class="btn primary" onclick="openActionSheet('reroute')">⚡ Re-route</button>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">⚡ Right Now · Context-Aware</div></div></div>
+  <div class="heads-up">
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon accent">◉</div>
+      <div class="hu-body">
+        <div class="hu-title">Matt Olsen is 40 ft from you</div>
+        <div class="hu-note">LinkedIn colleague. At Anthropic booth #812 since 10:34 AM.</div>
+        <div class="hu-reasoning">
+          <strong>How Atlas knows:</strong> Matt's agent shared his approximate expo location. He's on your coffee-with list from last quarter. His next session is 11:30 AM — same as yours. Coffee after works.
+        </div>
+      </div>
+    </div>
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon warn">!</div>
+      <div class="hu-body">
+        <div class="hu-title">Your 1 PM and 2 PM are 12 min apart</div>
+        <div class="hu-note">South Hall → North Hall. 1 PM ends at 1:55. Atlas rerouted to a closer 1 PM.</div>
+      </div>
+    </div>
+    <div class="hu-item">
+      <div class="hu-icon info">i</div>
+      <div class="hu-body">
+        <div class="hu-title">Nearest restroom · 80 ft right</div>
+        <div class="hu-note">Past Deloitte booth. Less crowded than main floor.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">🎯 Expo Targets</div><div class="section-action">3 of 7</div></div></div>
+  <div class="venues">
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name">Anthropic · #812</div>
+          <div class="venue-tags">Priority 1<span class="tag-pipe">·</span>40 ft from you</div>
+        </div>
+      </div>
+      <div class="venue-desc">Jim Gorman said he'd be here morning blocks. MCP gateway conversation still open.</div>
+      <div class="venue-foot">
+        <div class="venue-status"><span class="status-dot open"></span>Matt is there now</div>
+        <div class="venue-actions">
+          <button class="book-btn" onclick="toast('accent', '<strong>Visit logged</strong>')">✓ Visit</button>
+        </div>
+      </div>
+    </div>
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name">Accenture · #1321</div>
+          <div class="venue-tags">Priority 2<span class="tag-pipe">·</span>4 min walk</div>
+        </div>
+      </div>
+      <div class="venue-desc">Agentic AI GTM demo · John Veltri LinkedIn Live at 3:10 PM Thursday.</div>
+      <div class="venue-foot">
+        <div class="venue-status"><span class="status-dot open"></span>Open</div>
+        <div class="venue-actions">
+          <button class="book-btn" onclick="toast('accent', '<strong>Added</strong> to route')">+ Route</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">⚡ Quick Actions</div></div></div>
+  <div style="padding: 0 20px;">
+    <div class="act-list">
+      <div class="act-opt" onclick="toast('accent', '<strong>$8.40 expensed</strong> · Trip/Vegas/Coffee')">
+        <div class="act-opt-ic">💳</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Log last receipt</div>
+          <div class="act-opt-s">Starbucks · $8.40 · auto-tagged</div>
+        </div>
+      </div>
+      <div class="act-opt" onclick="toast('accent', '<strong>Pinged Matt</strong> · waiting on his agent')">
+        <div class="act-opt-ic">👋</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Ping Matt — coffee after 11 AM?</div>
+          <div class="act-opt-s">Agent-to-agent · drafts, waits for both confirms</div>
+        </div>
+      </div>
+      <div class="act-opt" onclick="toast('accent', '<strong>Recording</strong> · Obsidian sync on')">
+        <div class="act-opt-ic">🎙</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Record + transcribe next session</div>
+          <div class="act-opt-s">Auto-summary to Obsidian vault after</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OFF-SITE MODE -->
+<div data-loc="offsite">
+
+  <div class="next-up">
+    <div class="next-up-head">
+      <div class="next-up-label">You're Off-route</div>
+      <div class="next-up-countdown">detected</div>
+    </div>
+    <div class="next-up-title">Replanning around your location</div>
+    <div class="next-up-detail">Atlas noticed you left Mandalay. No session until <strong>2:30 PM</strong> — you have 1h 40m.</div>
+    <div class="next-up-actions">
+      <button class="btn" onclick="toast('info', '<strong>Route queued</strong>')">↗ Back to venue</button>
+      <button class="btn primary" onclick="openVoice()">🎙 Tell Atlas</button>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">📍 Near You · Curated</div></div></div>
+  <div class="venues">
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Vesta+Coffee+Roasters+Las+Vegas">Vesta Coffee Roasters ↗</a></div>
+          <div class="venue-tags">Third-wave<span class="tag-pipe">·</span>4 min away</div>
+        </div>
+      </div>
+      <div class="venue-desc">Arts District. You've flagged this every Vegas trip. Now's the window.</div>
+      <div class="venue-foot">
+        <div class="venue-status"><span class="status-dot open"></span>Open · 6:30 AM–4 PM</div>
+        <div class="venue-actions">
+          <button class="book-btn" onclick="toast('accent', '<strong>Route locked</strong>')">Navigate</button>
+        </div>
+      </div>
+    </div>
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Red+Rock+Canyon+Las+Vegas">Red Rock Canyon ↗</a></div>
+          <div class="venue-tags">Scenic drive<span class="tag-pipe">·</span>22 min</div>
+        </div>
+      </div>
+      <div class="venue-desc">Too far today (1h 40m window). Flagged for Thursday lunch gap if you need a reset.</div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">🚨 Don't Forget</div></div></div>
+  <div class="heads-up">
+    <div class="hu-item">
+      <div class="hu-icon warn">!</div>
+      <div class="hu-body">
+        <div class="hu-title">2:30 PM session is seat-reserved</div>
+        <div class="hu-note">Leave wherever you are by 2:10 PM.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- AIRPORT MODE -->
+<div data-loc="airport">
+
+  <div class="next-up">
+    <div class="next-up-head">
+      <div class="next-up-label">Boarding Soon</div>
+      <div class="next-up-countdown">in 38 min</div>
+    </div>
+    <div class="next-up-title">Gate C7 · Southwest 2244 to MCI</div>
+    <div class="next-up-detail"><strong>On time.</strong> Boarding group A32. You're 4 gates away in Terminal 1C. Bathroom between here and the gate.</div>
+    <div class="next-up-actions">
+      <button class="btn" onclick="toast('info', '<strong>Boarding pass</strong>')">🎫 Pass</button>
+      <button class="btn" onclick="toast('info', '<strong>Gate map</strong>')">🗺 Gate</button>
+      <button class="btn primary" onclick="toast('accent', '<strong>Marcie notified</strong> · ETA 6:12 PM')">📨 Notify home</button>
+    </div>
+  </div>
+
+  <div class="flight">
+    <div class="flight-head">
+      <div class="flight-num">SOUTHWEST 2244</div>
+      <div class="flight-status on">● On Time</div>
+    </div>
+    <div class="flight-body">
+      <div class="flight-side">
+        <div class="flight-code">LAS</div>
+        <div class="flight-time">3:05 PM</div>
+        <div class="flight-city">Harry Reid · C7</div>
+      </div>
+      <div class="flight-mid-line"></div>
+      <div class="flight-side" style="text-align: right;">
+        <div class="flight-code">MCI</div>
+        <div class="flight-time">6:02 PM</div>
+        <div class="flight-city">Kansas City · B</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">📋 Trip Wrap-Up</div></div></div>
+  <div style="padding: 0 20px;">
+    <div class="act-list">
+      <div class="act-opt" onclick="toast('accent', '<strong>4.5 stars</strong> · best = Yardbird')">
+        <div class="act-opt-ic">⭐</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Rate this trip</div>
+          <div class="act-opt-s">Quick tap · feeds the next trip's recs</div>
+        </div>
+      </div>
+      <div class="act-opt" onclick="toast('accent', '<strong>12 expenses submitted</strong> · $847 total')">
+        <div class="act-opt-ic">💳</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Submit expenses</div>
+          <div class="act-opt-s">12 items captured · pre-categorized · ready</div>
+        </div>
+      </div>
+      <div class="act-opt" onclick="toast('accent', '<strong>3 LinkedIn adds queued</strong>')">
+        <div class="act-opt-ic">🤝</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Follow-ups from badge scans</div>
+          <div class="act-opt-s">3 people · Atlas drafted intros</div>
+        </div>
+      </div>
+      <div class="act-opt" onclick="toast('accent', '<strong>Obsidian note created</strong>')">
+        <div class="act-opt-ic">📝</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Dump session notes</div>
+          <div class="act-opt-s">7 sessions transcribed · summarized</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section"><div class="section-head"><div class="section-title">🏠 Home Context</div></div></div>
+  <div class="heads-up">
+    <div class="hu-item">
+      <div class="hu-icon info">i</div>
+      <div class="hu-body">
+        <div class="hu-title">Marcie's expecting you ~6:45 PM</div>
+        <div class="hu-note">Traffic on 71 S moderate. Auto-text when wheels-down?</div>
+      </div>
+    </div>
+    <div class="hu-item">
+      <div class="hu-icon accent">◉</div>
+      <div class="hu-body">
+        <div class="hu-title">Friday evening pre-blocked as rest</div>
+        <div class="hu-note">Day-4 fatigue pattern. Saturday calendar clear too.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <div class="foot-sig">Atlas · for <span class="accent">Jeff</span></div>
+  <div class="foot-upd">Last sync: Wed Apr 22 · 8:13 AM PT</div>
+</div>
+
+<div class="modal-bg" id="voiceModal">
+  <div class="modal">
+    <div class="modal-grab"></div>
+    <div class="modal-head">
+      <div class="modal-title">Atlas · Ask Anything</div>
+      <button class="modal-close" onclick="closeModal('voiceModal')">✕</button>
+    </div>
+    <div id="voiceContent"></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="actionModal">
+  <div class="modal">
+    <div class="modal-grab"></div>
+    <div class="modal-head">
+      <div class="modal-title" id="actModalTitle">Action</div>
+      <button class="modal-close" onclick="closeModal('actionModal')">✕</button>
+    </div>
+    <div id="actModalBody"></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="budgetModal">
+  <div class="modal">
+    <div class="modal-grab"></div>
+    <div class="modal-head">
+      <div class="modal-title">Autonomous Spend · $500</div>
+      <button class="modal-close" onclick="closeModal('budgetModal')">✕</button>
+    </div>
+    <div style="font-size: 13px; color: var(--text-dim); line-height: 1.5; margin-bottom: 14px;">
+      Atlas can spend up to $500 on your behalf without asking. You see every action after.
+    </div>
+    <div class="act-list">
+      <div class="act-opt">
+        <div class="act-opt-ic">🎟</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Phish ticket · $118</div>
+          <div class="act-opt-s">Queued · auto-buy at 2 PM if undecided</div>
+        </div>
+      </div>
+      <div class="act-opt">
+        <div class="act-opt-ic">🚗</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Rideshare · $22 (Tue)</div>
+          <div class="act-opt-s">Auto-booked · LAS to NY-NY</div>
+        </div>
+      </div>
+      <div class="act-opt">
+        <div class="act-opt-ic">🛏</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Room upgrade · $40</div>
+          <div class="act-opt-s">Auto-accepted · Strip view · you sleep 23 min better with view data</div>
+        </div>
+      </div>
+      <div class="act-opt">
+        <div class="act-opt-ic">☕</div>
+        <div class="act-opt-body">
+          <div class="act-opt-t">Coffee + dinners · $162</div>
+          <div class="act-opt-s">Logged · auto-categorized</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="action-bar">
+  <button class="voice-btn" id="voiceBtn" onclick="openVoice()">
+    <svg class="mic-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+    Ask Atlas
+  </button>
+</div>
+
+<script>
+  const locButtons = document.querySelectorAll('[data-set-loc]');
+  const locViews = document.querySelectorAll('[data-loc]');
+  const heroSub = document.getElementById('heroSub');
+  const ctxLabel = document.getElementById('ctxLabel');
+
+  const locContext = {
+    hotel: { label: 'At New York-New York', sub: 'Opening keynote at <strong>9:00 AM</strong>. Badge in hand from last night. You\'re ahead of the crowd.' },
+    venue: { label: 'At Mandalay Bay · Expo Floor', sub: 'Next session in <strong>12 min</strong>. Atlas is tracking your path.' },
+    offsite: { label: 'Off-site · Arts District', sub: '1h 40m window. Atlas replanning around your location.' },
+    airport: { label: 'At LAS · Terminal 1C', sub: 'Southwest 2244 boarding <strong>in 38 min</strong>. On time.' }
+  };
+
+  locButtons.forEach(b => {
+    b.addEventListener('click', () => {
+      const loc = b.dataset.setLoc;
+      locButtons.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      locViews.forEach(v => v.classList.remove('visible'));
+      document.querySelector(`[data-loc="${loc}"]`).classList.add('visible');
+      ctxLabel.textContent = locContext[loc].label;
+      heroSub.innerHTML = locContext[loc].sub;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Vote buttons are <a href="sms:..."> links. Tapping one opens Messages
+  // prefilled with a structured token (see memory/taste-graph.md). The user
+  // confirms by tapping Send. Atlas ingests the vote on the next scheduled
+  // run via the Read and Send iMessages MCP.
+  //
+  // This handler only updates local UI. It does NOT call preventDefault,
+  // so the sms: href still fires on tap and opens Messages.
+  function markVoted(el, dir) {
+    const parent = el.parentElement;
+    const isUp = dir === 'up';
+    const other = parent.querySelector(isUp ? '.down' : '.up');
+    el.classList.add('voted');
+    if (other) other.classList.remove('voted');
+    toast('accent', isUp ? '<strong>👍 queued</strong> · tap Send in Messages' : '<strong>👎 queued</strong> · tap Send in Messages');
+  }
+
+  function bookVenue(btn, label) {
+    if (btn.classList.contains('booked')) return;
+    btn.classList.add('booked');
+    btn.textContent = '✓ Booked';
+    toast('accent', `<strong>Booked</strong> · ${label}`);
+  }
+
+  function setAlarm(btn) {
+    btn.classList.add('set');
+    btn.textContent = '✓ Set';
+    toast('accent', '<strong>Alarm set</strong> · 6:45 AM · auto-adjusts for sleep data');
+  }
+
+  function toggleReasoning(el, isVenue) {
+    const selector = isVenue ? '.venue-reasoning' : '.hu-reasoning';
+    const reasoning = el.parentElement.querySelector(selector) || el.nextElementSibling;
+    if (reasoning) reasoning.classList.toggle('open');
+    if (isVenue) el.classList.toggle('open');
+  }
+
+  function toast(type, html) {
+    const t = document.getElementById('toast');
+    const b = document.getElementById('toastBody');
+    const i = document.getElementById('toastIc');
+    b.innerHTML = html;
+    const icons = { accent: '✓', info: 'i', warn: '!' };
+    i.textContent = icons[type] || '✓';
+    const colors = {
+      accent: { bg: 'rgba(255,107,26,0.12)', color: 'var(--accent)' },
+      info: { bg: 'rgba(59,130,246,0.12)', color: 'var(--info)' },
+      warn: { bg: 'rgba(245,158,11,0.12)', color: 'var(--warn)' }
+    };
+    const c = colors[type] || colors.accent;
+    i.style.background = c.bg;
+    i.style.color = c.color;
+    t.classList.add('show');
+    clearTimeout(window._toastT);
+    window._toastT = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function openVoice() {
+    resetVoice();
+    openModal('voiceModal');
+  }
+  function openBudget() { openModal('budgetModal'); }
+
+  function resetVoice() {
+    document.getElementById('voiceContent').innerHTML = `
+      <div class="voice-status"><span class="pulse"></span>Ready</div>
+      <div class="voice-prompts">
+        <div class="voice-prompt-label">TAP A PROMPT TO DEMO</div>
+        <div class="voice-prompt" onclick="askAtlas('I want to bail on the 3 PM and hit the expo floor instead. Re-plan.')">
+          "I want to bail on the 3 PM and hit the expo floor instead. Re-plan."
+        </div>
+        <div class="voice-prompt" onclick="askAtlas('Book Phish at Sphere Thursday night, best available under 200 dollars.')">
+          "Book Phish at Sphere Thursday night, best available under $200."
+        </div>
+        <div class="voice-prompt" onclick="askAtlas('What should I do with this free 90 minutes before dinner?')">
+          "What should I do with this free 90 minutes before dinner?"
+        </div>
+        <div class="voice-prompt" onclick="askAtlas('Text Marcie that I love her and landing tomorrow at 6.')">
+          "Text Marcie that I love her and landing tomorrow at 6."
+        </div>
+        <div class="voice-prompt" onclick="askAtlas('My HRV is trashed. What should I skip today?')">
+          "My HRV is trashed. What should I skip today?"
+        </div>
+      </div>
+    `;
+  }
+
+  document.querySelectorAll('.modal-bg').forEach(m => {
+    m.addEventListener('click', (e) => {
+      if (e.target === m) closeModal(m.id);
+    });
+  });
+
+  async function askAtlas(prompt) {
+    const content = document.getElementById('voiceContent');
+    content.innerHTML = `
+      <div class="voice-status"><span class="pulse"></span>Thinking</div>
+      <div class="voice-heard">
+        <div class="voice-heard-label">You said</div>
+        <div class="voice-heard-text">"${prompt}"</div>
+      </div>
+      <div class="voice-thinking">
+        <div class="thinking-dots"><span></span><span></span><span></span></div>
+        Atlas is reasoning
+      </div>
+    `;
+
+    try {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 800,
+          system: `You are Atlas, Jeff Danley's personal AI travel agent in Jarvis Mode. Jeff is in Las Vegas for Google Cloud Next '26 (Apr 22-24) at Mandalay Bay. Staying at New York-New York. Flying Southwest direct KC/LAS, home flight 3 PM Friday. Solo trip. Wife is Marcie. He's Innovation Development Director at Burns & McDonnell. Phish is at Sphere Thursday and Friday nights — Thursday is the only viable night given his Friday flight.
+
+Voice rules (CRITICAL):
+- Match Jeff's direct, no-preamble style
+- No "I'd be happy to" or "Let me help"
+- Be decisive. Make the call. Don't ladder options unless truly needed
+- Act like you just DID the thing, not like you're about to
+- No em dashes. Never say "delve" or "certainly" or "absolutely"
+- Short punchy sentences. Line breaks for scannability
+- Reference concrete trip details
+- Under 120 words
+- Start with the action, not context
+
+Respond as Atlas taking action.`,
+          messages: [{ role: "user", content: prompt }]
+        })
+      });
+
+      const data = await response.json();
+      const text = data.content.filter(c => c.type === 'text').map(c => c.text).join('\n');
+
+      content.innerHTML = `
+        <div class="voice-status"><span class="pulse" style="background: var(--success)"></span>Done</div>
+        <div class="voice-heard">
+          <div class="voice-heard-label">You said</div>
+          <div class="voice-heard-text">"${prompt}"</div>
+        </div>
+        <div class="voice-response">${text}</div>
+        <div style="margin-top: 16px; display: flex; gap: 8px;">
+          <button class="btn" onclick="resetVoice()">Ask another</button>
+          <button class="btn primary" onclick="closeModal('voiceModal'); toast('accent', '<strong>Confirmed</strong>')">Confirm</button>
+        </div>
+      `;
+    } catch (err) {
+      content.innerHTML = `
+        <div class="voice-status" style="color: var(--danger)">Error</div>
+        <div class="voice-heard">
+          <div class="voice-heard-label">You said</div>
+          <div class="voice-heard-text">"${prompt}"</div>
+        </div>
+        <div class="voice-response" style="color: var(--text-dim)">Atlas is offline. ${err.message}</div>
+        <div style="margin-top: 16px;">
+          <button class="btn primary" style="flex: 1" onclick="resetVoice()">Try again</button>
+        </div>
+      `;
+    }
+  }
+
+  function openActionSheet(type) {
+    const sheets = {
+      rideshare: {
+        title: 'Rideshare to Mandalay',
+        body: `
+          <div class="act-list">
+            <div class="act-opt" onclick="toast('accent', '<strong>Uber booked</strong> · 3 min away'); closeModal('actionModal')">
+              <div class="act-opt-ic">🚗</div>
+              <div class="act-opt-body">
+                <div class="act-opt-t">Uber · $14 · 3 min</div>
+                <div class="act-opt-s">UberX · direct to Mandalay entrance</div>
+              </div>
+            </div>
+            <div class="act-opt" onclick="toast('accent', '<strong>Lyft booked</strong> · 4 min away'); closeModal('actionModal')">
+              <div class="act-opt-ic">🚕</div>
+              <div class="act-opt-body">
+                <div class="act-opt-t">Lyft · $12 · 4 min</div>
+                <div class="act-opt-s">Standard · $2 cheaper</div>
+              </div>
+            </div>
+            <div class="act-opt" onclick="toast('info', '<strong>Walking route</strong>'); closeModal('actionModal')">
+              <div class="act-opt-ic">🚶</div>
+              <div class="act-opt-body">
+                <div class="act-opt-t">Walk via tram · 15 min</div>
+                <div class="act-opt-s">Free · bridge → Excalibur tram → Mandalay</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      reroute: {
+        title: 'Re-route Your Day',
+        body: `
+          <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 14px;">Atlas has 3 ways to reshape the next 3 hours.</div>
+          <div class="act-list">
+            <div class="act-opt" onclick="toast('accent', '<strong>Plan updated</strong>'); closeModal('actionModal')">
+              <div class="act-opt-ic">🎯</div>
+              <div class="act-opt-body">
+                <div class="act-opt-t">Skip 3 PM · hit Anthropic + Accenture booths</div>
+                <div class="act-opt-s">Keeps 4 PM session · adds 2 booth visits</div>
+              </div>
+            </div>
+            <div class="act-opt" onclick="toast('accent', '<strong>Coffee with Matt booked</strong>'); closeModal('actionModal')">
+              <div class="act-opt-ic">☕</div>
+              <div class="act-opt-body">
+                <div class="act-opt-t">Replace 3 PM with Matt coffee</div>
+                <div class="act-opt-s">Pings Matt's agent · finds window · books spot</div>
+              </div>
+            </div>
+            <div class="act-opt" onclick="toast('accent', '<strong>Break blocked</strong>'); closeModal('actionModal')">
+              <div class="act-opt-ic">🧘</div>
+              <div class="act-opt-body">
+                <div class="act-opt-t">Power nap at hotel · 45 min</div>
+                <div class="act-opt-s">HRV tanked · you slept 5h 12m · back for 5:30</div>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    };
+    const s = sheets[type];
+    document.getElementById('actModalTitle').textContent = s.title;
+    document.getElementById('actModalBody').innerHTML = s.body;
+    openModal('actionModal');
+  }
+
+  resetVoice();
+</script>
+
 </body>
 </html>
