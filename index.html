@@ -387,8 +387,8 @@
       <div class="venue-foot">
         <div class="venue-status"><span class="status-dot open"></span>Bar open · walk-in</div>
         <div class="venue-actions">
-          <a class="vote-btn up" href="sms:jeff@danley.net?body=atlas-vote%3A%20Gordon%20Ramsay%20Steak%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
-          <a class="vote-btn down" href="sms:jeff@danley.net?body=atlas-vote%3A%20Gordon%20Ramsay%20Steak%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
+          <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Gordon%20Ramsay%20Steak%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Gordon%20Ramsay%20Steak%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
           <button class="book-btn" onclick="bookVenue(this, 'Gordon Ramsay Steak · bar · 7:30 PM')">Book</button>
         </div>
       </div>
@@ -414,8 +414,8 @@
       <div class="venue-foot">
         <div class="venue-status"><span class="status-dot open"></span>OpenTable: 7:45 PM</div>
         <div class="venue-actions">
-          <a class="vote-btn up" href="sms:jeff@danley.net?body=atlas-vote%3A%20Yardbird%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
-          <a class="vote-btn down" href="sms:jeff@danley.net?body=atlas-vote%3A%20Yardbird%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
+          <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Yardbird%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Yardbird%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
           <button class="book-btn" onclick="bookVenue(this, 'Yardbird · 7:45 PM · 1 guest')">Book</button>
         </div>
       </div>
@@ -432,8 +432,8 @@
       <div class="venue-foot">
         <div class="venue-status"><span class="status-dot open"></span>Walk-in</div>
         <div class="venue-actions">
-          <a class="vote-btn up" href="sms:jeff@danley.net?body=atlas-vote%3A%20Nine%20Fine%20Irishmen%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
-          <a class="vote-btn down" href="sms:jeff@danley.net?body=atlas-vote%3A%20Nine%20Fine%20Irishmen%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
+          <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Nine%20Fine%20Irishmen%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Nine%20Fine%20Irishmen%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
           <button class="book-btn" onclick="bookVenue(this, 'Nine Fine Irishmen · walk-in')">Book</button>
         </div>
       </div>
@@ -858,20 +858,21 @@
     });
   });
 
-  // Vote buttons are <a href="sms:..."> links. Tapping one opens Messages
-  // prefilled with a structured token (see memory/taste-graph.md). The user
-  // confirms by tapping Send. Atlas ingests the vote on the next scheduled
-  // run via the Read and Send iMessages MCP.
+  // Vote buttons are <a href="mailto:..."> links. Tapping opens Mail
+  // prefilled with subject "atlas-vote" and a structured body. v1 parks
+  // these emails in Jeff's inbox for manual review post-trip; the live
+  // ingest webhook is deferred (see docs/V2-BACKLOG.md and
+  // memory/taste-graph.md).
   //
   // This handler only updates local UI. It does NOT call preventDefault,
-  // so the sms: href still fires on tap and opens Messages.
+  // so the mailto: href still fires on tap and opens Mail.
   function markVoted(el, dir) {
     const parent = el.parentElement;
     const isUp = dir === 'up';
     const other = parent.querySelector(isUp ? '.down' : '.up');
     el.classList.add('voted');
     if (other) other.classList.remove('voted');
-    toast('accent', isUp ? '<strong>👍 queued</strong> · tap Send in Messages' : '<strong>👎 queued</strong> · tap Send in Messages');
+    toast('accent', isUp ? '<strong>👍 queued</strong> · tap Send in Mail' : '<strong>👎 queued</strong> · tap Send in Mail');
   }
 
   function bookVenue(btn, label) {
@@ -1098,3 +1099,4 @@ Respond as Atlas taking action.`,
 
 </body>
 </html>
+<!-- ATLAS-RENDER-OK -->
