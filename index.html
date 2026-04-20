@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0f">
-<title>Atlas · Vegas · Jarvis Mode</title>
+<title>Atlas · Vegas · Pre-Trip</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -249,22 +249,22 @@
 <div class="hdr">
   <div class="hdr-left">
     <div class="hdr-logo">A</div>
-    <div class="hdr-title">Atlas · <span class="accent">Jarvis Mode</span></div>
+    <div class="hdr-title">Atlas · <span class="accent">Pre-Trip</span></div>
   </div>
   <div class="hdr-right">
-    <button class="budget-pill" onclick="openBudget()">◆ $342 / $500</button>
+    <button class="budget-pill" onclick="openBudget()">◆ $0 / $500</button>
     <div class="live-ind"><span class="pulse"></span> Live</div>
   </div>
 </div>
 
 <div class="phase-banner">
-  <strong>DEMO</strong> · Tap location to reshape · Tap mic for voice · Tap ▸ for reasoning
+  <strong>T-2 DAYS</strong> · Vegas · Google Cloud Next '26 · Depart Tue 3:40 PM CT
 </div>
 
 <div class="locbar">
   <div class="locbar-label">You are at</div>
   <div class="loc-grid">
-    <button class="loc-btn active" data-set-loc="hotel"><span class="loc-ic">🏨</span>Hotel</button>
+    <button class="loc-btn active" data-set-loc="hotel"><span class="loc-ic">🏠</span>Home KC</button>
     <button class="loc-btn" data-set-loc="venue"><span class="loc-ic">🎤</span>Venue</button>
     <button class="loc-btn" data-set-loc="offsite"><span class="loc-ic">🚗</span>Off-site</button>
     <button class="loc-btn" data-set-loc="airport"><span class="loc-ic">✈️</span>Airport</button>
@@ -273,97 +273,112 @@
 
 <div class="hero">
   <div class="hero-meta">
-    <span>Day 2 of 4</span><span class="dot"></span><span id="ctxLabel">At New York-New York</span>
+    <span>Day 0 · Pre-trip</span><span class="dot"></span><span id="ctxLabel">Home · Kansas City</span>
   </div>
-  <div class="hero-date">Wed, Apr 22</div>
-  <div class="hero-sub" id="heroSub">Opening keynote at <strong>9:00 AM</strong>. Badge in hand from last night. You're ahead of the crowd.</div>
+  <div class="hero-date">Sun, Apr 19</div>
+  <div class="hero-sub" id="heroSub">48 hours to wheels-up. <strong>Southwest 3033</strong> confirmed, PNR <strong>AWWCMA</strong>. One decision left: Phish.</div>
   <div class="hero-chips">
-    <span class="chip">☀️ <span class="chip-val">78°F</span></span>
-    <span class="chip">💨 <span class="chip-val">9 mph</span></span>
+    <span class="chip">🌙 KC <span class="chip-val">80°F clear</span></span>
+    <span class="chip">☀️ LAS Tue <span class="chip-val">85° / 59°</span></span>
     <span class="chip">🏨 <span class="chip-val">NY-NY · Rm 2847</span></span>
   </div>
 </div>
 
-<!-- HOTEL MODE -->
+<!-- PRE-TRIP / HOME MODE -->
 <div data-loc="hotel" class="visible">
 
   <div class="next-up">
     <div class="next-up-head">
-      <div class="next-up-label">Next Up</div>
-      <div class="next-up-countdown">in 1h 42m</div>
+      <div class="next-up-label">Decision Window</div>
+      <div class="next-up-countdown">closes Wed 2 PM PT</div>
     </div>
-    <div class="next-up-title">Walk to Mandalay Bay</div>
-    <div class="next-up-detail">Leave by <strong>8:15 AM</strong>. Tram from Excalibur is faster than walking in heat. ~15 min door to floor.</div>
+    <div class="next-up-title">Lock Phish at Sphere · Thu night</div>
+    <div class="next-up-detail">Last cached price <strong>$118</strong> (up from $95 Mon). Thursday is your only viable night. Atlas leans <strong>YES</strong>. Buy before Monday close and save ~$25.</div>
     <div class="next-up-actions">
-      <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=New+York+New+York+Hotel+Las+Vegas&destination=Mandalay+Bay+Convention+Center&travelmode=walking">↗ Route</a>
-      <button class="btn" onclick="openActionSheet('rideshare')">🚗 Ride</button>
-      <button class="btn primary" onclick="toast('accent', '<strong>Alarm set</strong> · 8:10 AM')">⏰ Remind</button>
+      <a class="btn" href="https://www.google.com/search?q=Phish+Sphere+Las+Vegas+April+23+2026+tickets">🎟 Tickets</a>
+      <button class="btn" onclick="toast('info', '<strong>Reasoning expanded</strong> · scroll down to Heads Up')">🧠 Why</button>
+      <button class="btn primary" onclick="toast('accent', '<strong>Reminder set</strong> · Mon 9 AM · Phish decision')">⏰ Remind</button>
     </div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">⚡ Heads Up · 3 items</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">⚡ Heads Up · 4 items</div></div></div>
   <div class="heads-up">
+
     <div class="hu-item" onclick="toggleReasoning(this)">
-      <div class="hu-icon sphere">◉</div>
+      <div class="hu-icon accent">✓</div>
       <div class="hu-body">
-        <div class="hu-title">Phish Thursday conflicts with Next at Night</div>
-        <div class="hu-note">Book Phish Thursday tonight — Friday flight kills that option.</div>
+        <div class="hu-title">Date conflict resolved · trip is Apr 21-24</div>
+        <div class="hu-note">State file confirmed by Southwest PNR + Calendar. Obsidian trip note (Apr 23-26) is stale.</div>
         <div class="hu-reasoning">
-          <strong>Why Atlas leans Phish:</strong><br>
-          • Last Vegas trip you skipped Sphere and mentioned it twice afterward<br>
-          • Next at Night = Weezer + Benson Boone (neither on your watchlist)<br>
-          • Sphere × Phish is a tier-1 experience in your memory<br>
-          • Thursday is the only viable night given your 3 PM Friday flight<br>
-          • Tickets trending +18% per day — book by 2 PM today
+          <strong>What Atlas reconciled this morning:</strong><br>
+          • Southwest AWWCMA itinerary: out Tue 4/21 3:40 PM CT, back Fri 4/24 1:10 PM PT<br>
+          • Calendar events placed at Mandalay Bay Wed-Fri 4/22-4/24<br>
+          • Your Obsidian note at <em>Travel/Trips/2026-04-LasVegas.md</em> still says Apr 23-26. Hand-edit or Atlas can patch next run.
         </div>
       </div>
     </div>
+
     <div class="hu-item" onclick="toggleReasoning(this)">
       <div class="hu-icon warn">!</div>
       <div class="hu-body">
-        <div class="hu-title">Rollerbag ban at Mandalay Bay</div>
-        <div class="hu-note">Bags 12"×18" max. No wheels inside venue.</div>
+        <div class="hu-title">Wed 7 PM client reception pre-empts dinner</div>
+        <div class="hu-note">Skyfall Lounge @ Mandalay. 3 hours, gourmet bites. You're not booking a 7:30 solo dinner Wed.</div>
         <div class="hu-reasoning">
-          <strong>Implication for Friday:</strong><br>
-          • Don't plan to roll-and-go straight to final sessions<br>
-          • Use Friday luggage valet (see next card)<br>
-          • Or drop bags at NY-NY bell desk and Uber back
+          <strong>How Wed night now shapes:</strong><br>
+          • Keynote 9 AM then lunch on-site then breakout block<br>
+          • 5:30 PM expo close-out (Anthropic, Accenture)<br>
+          • 7:00-10:00 PM Skyfall reception (calendar confirmed, organizer accepted)<br>
+          • Venue serves food. Skip the 7:30 dinner slot. If hungry late, Nine Fine Irishmen is in your hotel.
         </div>
       </div>
     </div>
+
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon sphere">◉</div>
+      <div class="hu-body">
+        <div class="hu-title">Thu transition · PwC 4-6 PM then Sphere</div>
+        <div class="hu-note">Cloud and Cocktails at PwC ends 6 PM. Phish doors typically 7:30. Tight but clean.</div>
+        <div class="hu-reasoning">
+          <strong>Thu evening plan if Phish locked:</strong><br>
+          • 4:00-6:00 PM · Cloud and Cocktails, PwC Lounge (demos and light food)<br>
+          • 6:00 PM · Rideshare Mandalay to Sphere (~12 min)<br>
+          • 6:30 PM · Grab real food near Venetian/Palazzo (bar seat, 45 min)<br>
+          • 7:30 PM · Phish doors at Sphere<br>
+          • You skip Next at Night. Weezer + Benson Boone are not on your watchlist.
+        </div>
+      </div>
+    </div>
+
     <div class="hu-item" onclick="toggleReasoning(this)">
       <div class="hu-icon info">i</div>
       <div class="hu-body">
-        <div class="hu-title">Friday luggage valet · Michelob ULTRA Arena</div>
-        <div class="hu-note">6 AM – 5 PM. Solves the Friday scramble.</div>
+        <div class="hu-title">REAL ID check before Tuesday</div>
+        <div class="hu-note">Southwest flagged it in your itinerary email. Verify your MO license shows the star.</div>
         <div class="hu-reasoning">
-          <strong>Friday plan Atlas has drafted:</strong><br>
-          • 9:30 AM — Check out of NY-NY<br>
-          • 10:00 AM — Drop bags at Mandalay valet<br>
-          • 10:30 AM to 1:00 PM — Closing sessions<br>
-          • 1:15 PM — Grab bags<br>
-          • 1:30 PM — Uber to LAS (5 min)<br>
-          • 3:00 PM — Southwest wheels-up
+          <strong>If not REAL ID compliant:</strong><br>
+          • Passport works as backup (TSA accepts it for domestic)<br>
+          • You have PreCheck, so this is fast either way<br>
+          • Worst case: MO DOR Lee's Summit office opens 8 AM Mon
         </div>
       </div>
     </div>
+
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">📅 Today</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">🧳 Tonight + Tomorrow</div><div class="section-action">Prep window</div></div></div>
   <div style="padding: 0 20px;">
   <div class="timeline">
-    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">6:45 AM</div><div class="tl-title done">Wake · alarm fired</div></div>
-    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">7:15 AM</div><div class="tl-title done">Coffee — Starbucks lobby</div></div>
-    <div class="tl-item"><div class="tl-dot now"></div><div class="tl-time now">8:15 AM · NOW</div><div class="tl-title">Leave for Mandalay Bay</div><div class="tl-note">NY-NY → pedestrian bridge → Excalibur → free tram → Mandalay. 15 min.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:00 AM</div><div class="tl-title">Opening Keynote · Thomas Kurian</div><div class="tl-note">Gemini + Vertex AI reveals. The one that matters for andi roadmap.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">11:30 AM</div><div class="tl-title">Lunch · Bayside C</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">1:00 PM</div><div class="tl-title">Breakout block</div><div class="tl-note">3 sessions reserved via Agenda Builder</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">5:30 PM</div><div class="tl-title">Expo close-out — Anthropic, Accenture</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">7:30 PM</div><div class="tl-title">Dinner · picks below</div></div>
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">Sat</div><div class="tl-title done">Badge reg + agenda builder sessions reserved</div></div>
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">Sun AM</div><div class="tl-title done">Laundry · work clothes ready</div></div>
+    <div class="tl-item"><div class="tl-dot now"></div><div class="tl-time now">SUN PM · NOW</div><div class="tl-title">Wind down · light pack</div><div class="tl-note">Charger, dongles, note-taking rig, gym shoes. Suit goes in tomorrow so it does not wrinkle.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON AM</div><div class="tl-title">Workday · Burns &amp; Mac office</div><div class="tl-note">Close anything that cannot wait. Phish decision by 9 AM so it is off your plate.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON PM</div><div class="tl-title">Final pack + boarding pass check</div><div class="tl-note">A-list auto-checks in. Confirm seat window preference, lane to MCI.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TUE 2:00 PM</div><div class="tl-title">Leave for MCI · 75-min pad</div><div class="tl-note">PreCheck open. WN 3033 departs 3:40 PM CT.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TUE 4:45 PM PT</div><div class="tl-title">Wheels down LAS · rideshare NY-NY</div><div class="tl-note">~5 min ride. Hit hotel, drop bag, then badge pickup before 10 PM (skips Wed 8 AM line).</div></div>
   </div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">🍽 Tonight · 3 picks</div><div class="section-action">Solo · 7:30 PM</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">🍽 Vegas Dinner Blueprint · Tue + Thu</div><div class="section-action">Solo · bar seating</div></div></div>
   <div class="venues">
 
     <div class="venue">
@@ -373,23 +388,23 @@
           <div class="venue-tags">Steakhouse<span class="tag-pipe">·</span>$$$<span class="tag-pipe">·</span>Paris<span class="tag-pipe">·</span>8 min</div>
         </div>
       </div>
-      <div class="venue-desc">Bar seating is the solo play — faster turn, full menu, same kitchen. Beef Wellington is the move.</div>
+      <div class="venue-desc">Tuesday arrival dinner. Bar seating is the solo play. Beef Wellington is the move.</div>
       <div class="venue-why" onclick="toggleReasoning(this, true)">Why this over alternatives</div>
       <div class="venue-reasoning">
-        Atlas weighed 14 steakhouses tonight:
+        Tuesday is your only clean dinner window (Wed is reception, Thu is Phish):
         <ul>
-          <li>Excluded <strong>Carbone</strong> — you voted 👎 in Miami (scene-y)</li>
-          <li>Excluded <strong>Delmonico</strong> — kitchen runs long, you hate 2h solo dinners</li>
-          <li>Excluded <strong>Golden Steer</strong> — 20 min rideshare each way, not worth it</li>
-          <li>Gordon Ramsay wins: bar seating open, 90-min solo benchmark from your Seattle trip</li>
+          <li>Excluded <strong>Carbone</strong> · you voted 👎 in both Miami and Vegas (scene-y)</li>
+          <li>Excluded <strong>Delmonico</strong> · kitchen runs 2h+, you cap solo dinners at 90 min</li>
+          <li>Excluded <strong>Golden Steer</strong> · 20 min rideshare each way, not worth it on arrival night</li>
+          <li>Gordon Ramsay wins: bar open walk-up, same kitchen, 👍 in your Vegas 2024 log</li>
         </ul>
       </div>
       <div class="venue-foot">
-        <div class="venue-status"><span class="status-dot open"></span>Bar open · walk-in</div>
+        <div class="venue-status"><span class="status-dot open"></span>Bar walk-in · Tue 7:30 PM</div>
         <div class="venue-actions">
           <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Gordon%20Ramsay%20Steak%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
           <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Gordon%20Ramsay%20Steak%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
-          <button class="book-btn" onclick="bookVenue(this, 'Gordon Ramsay Steak · bar · 7:30 PM')">Book</button>
+          <button class="book-btn" onclick="bookVenue(this, 'Gordon Ramsay Steak · bar · Tue 7:30 PM')">Plan</button>
         </div>
       </div>
     </div>
@@ -398,25 +413,25 @@
       <div class="venue-top">
         <div>
           <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Yardbird+Southern+Table+%26+Bar+Las+Vegas">Yardbird Southern ↗</a></div>
-          <div class="venue-tags">Southern<span class="tag-pipe">·</span>$$<span class="tag-pipe">·</span>Venetian<span class="tag-pipe">·</span>12 min</div>
+          <div class="venue-tags">Southern<span class="tag-pipe">·</span>$$<span class="tag-pipe">·</span>Venetian<span class="tag-pipe">·</span>near Sphere</div>
         </div>
       </div>
-      <div class="venue-desc">Fried chicken + bourbon. Lower key than a steakhouse, still a real meal. Not a scene.</div>
+      <div class="venue-desc">Thursday pre-Phish. Fried chicken, mac, fast bar turn. Venetian side is right next to Sphere.</div>
       <div class="venue-why" onclick="toggleReasoning(this, true)">Why this over alternatives</div>
       <div class="venue-reasoning">
         <ul>
-          <li>You've 👍'd comfort food solo on 4 of last 7 trips</li>
-          <li>OpenTable shows 7:45 PM bar or booth — same kitchen timing</li>
-          <li>Best value pick — keeps budget room for Phish tickets</li>
-          <li>Walkable rideshare pickup, not buried in Venetian</li>
+          <li>👍 from Miami 2025. Same kitchen template</li>
+          <li>Geographically parks you near Sphere after PwC reception ends 6 PM</li>
+          <li>Not a scene. Not a tasting menu. Fits the 90-min window</li>
+          <li>Best value pick · budget room for Phish ticket</li>
         </ul>
       </div>
       <div class="venue-foot">
-        <div class="venue-status"><span class="status-dot open"></span>OpenTable: 7:45 PM</div>
+        <div class="venue-status"><span class="status-dot open"></span>OpenTable bar · Thu 6:30 PM</div>
         <div class="venue-actions">
           <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Yardbird%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
           <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Yardbird%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
-          <button class="book-btn" onclick="bookVenue(this, 'Yardbird · 7:45 PM · 1 guest')">Book</button>
+          <button class="book-btn" onclick="bookVenue(this, 'Yardbird · Thu 6:30 PM · 1 guest')">Plan</button>
         </div>
       </div>
     </div>
@@ -428,13 +443,13 @@
           <div class="venue-tags">Pub<span class="tag-pipe">·</span>$$<span class="tag-pipe">·</span>NY-NY<span class="tag-pipe">·</span>0 min</div>
         </div>
       </div>
-      <div class="venue-desc">In your hotel. Shepherd's pie, live music after 9. Fallback if keynote runs long.</div>
+      <div class="venue-desc">Fallback. In your hotel. Shepherd's pie and live trad music after 9. If keynote runs long or you just want simple, this is the no-thought option.</div>
       <div class="venue-foot">
-        <div class="venue-status"><span class="status-dot open"></span>Walk-in</div>
+        <div class="venue-status"><span class="status-dot open"></span>Walk-in any night</div>
         <div class="venue-actions">
           <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Nine%20Fine%20Irishmen%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
           <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Nine%20Fine%20Irishmen%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
-          <button class="book-btn" onclick="bookVenue(this, 'Nine Fine Irishmen · walk-in')">Book</button>
+          <button class="book-btn" onclick="bookVenue(this, 'Nine Fine Irishmen · walk-in')">Plan</button>
         </div>
       </div>
     </div>
@@ -444,164 +459,113 @@
   <div class="section"><div class="section-head"><div class="section-title">🧠 What Atlas Has Learned</div><div class="section-action">67 trips</div></div></div>
   <div class="memory">
     <div class="mem-list">
-      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Solo bar seating</strong> preferred 9 of 11 last solo dinners. Defaulting to bar requests.</div></div>
-      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Coffee before meetings always.</strong> Never scheduling a meeting before first coffee window.</div></div>
-      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Avoid "scene" restaurants</strong> — 6 of last 8 👎 votes tagged this. Carbone, Beauty & Essex auto-excluded.</div></div>
-      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Day-4 conference fatigue</strong> pattern across 7 tech events. Friday evening in KC pre-blocked as rest.</div></div>
-      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Regret flag from last Vegas:</strong> skipped Sphere, mentioned twice. Not skipping this time.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Sphere × Phish regret flag.</strong> You skipped last Vegas trip and mentioned it twice after. Tier-1 surface every Vegas run until cleared.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Solo bar seating</strong> · 9 of last 11 solo dinners. Defaulting Gordon Ramsay + Yardbird to bar.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Avoid "scene" restaurants</strong> · 6 of last 8 👎 tagged this. Carbone, Catch, TAO, Beauty &amp; Essex auto-excluded.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Coffee before any pre-10 AM meeting.</strong> Vesta Coffee Roasters flagged every Vegas trip, never visited. If Thu lunch opens up, that is the move.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Day-4 conference fatigue</strong> across 7 events. Friday 2 sessions max, protect afternoon for expo + bag valet.</div></div>
     </div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">📡 Atlas Updates</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">📡 Atlas Updates</div><div class="section-action">Morning run · 7:55 PM CDT</div></div></div>
   <div class="feed">
     <div class="feed-item">
-      <div class="feed-ts">Wed · 7:14 AM</div>
-      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Drafted text to Marcie: "Keynote at 9 AM, good morning 💙". <button class="book-btn" style="margin-left:6px" onclick="toast('accent', '<strong>Sent</strong> to Marcie')">Send</button></div>
+      <div class="feed-ts">Sun · 7:55 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-upd">UPDATED</span>State file patched: WN 3033 out / WN 1579 back / PNR AWWCMA. Cleaned the "pull from TripIt" placeholders.</div>
     </div>
     <div class="feed-item">
-      <div class="feed-ts">Wed · 6:02 AM</div>
-      <div class="feed-msg"><span class="tag tag-new">NEW</span>Tonight's dinner picks refreshed. Added Yardbird after Carbone 👎 last trip.</div>
+      <div class="feed-ts">Sun · 7:55 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-alert">RECONCILE</span>Obsidian trip note still shows Apr 23-26. Authoritative dates are Apr 21-24. Hand-edit the note or let the next Atlas run patch it.</div>
     </div>
     <div class="feed-item">
-      <div class="feed-ts">Tue · 10:14 PM</div>
-      <div class="feed-msg"><span class="tag tag-alert">ALERT</span>Phish tickets up to $118 (from $95 yesterday). Trending +18%/day.</div>
+      <div class="feed-ts">Sun · 7:55 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-new">NEW</span>Wed 7-10 PM client reception at Skyfall added from calendar. Wed dinner slot killed.</div>
     </div>
     <div class="feed-item">
-      <div class="feed-ts">Tue · 8:22 PM</div>
-      <div class="feed-msg"><span class="tag tag-new">NEW</span>Badge pickup done. Avoided Wednesday 8 AM line.</div>
+      <div class="feed-ts">Sun · 7:55 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-new">NEW</span>Thu 4-6 PM Cloud and Cocktails at PwC Lounge. Hands the Sphere transition a hard edge, not a blocker.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Sun · 7:55 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-alert">ALERT</span>Phish.net API unavailable at 19:55. Using cached $118 from Tue 10:14 PM. Price likely higher now.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Sun · 7:55 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Solo trip routine kicks in Tuesday. Daily Marcie check-in draft staged for Tue evening at wheels-down.</div>
     </div>
   </div>
 
   <div class="tomorrow">
-    <div class="tm-label">Thursday · Apr 23</div>
-    <div class="tm-date">Next Day 2 · Decision Day</div>
+    <div class="tm-label">Monday · Apr 20 · T-1</div>
+    <div class="tm-date">Last Full Day at Home</div>
 
     <div class="tm-hero">
       <div class="tm-hero-icon">☀️</div>
       <div>
-        <div class="tm-hero-t">Sunny · 80° / 59°</div>
-        <div class="tm-hero-s">Same as today. Same outfit works.</div>
+        <div class="tm-hero-t">KC sunny · 82° / 60°</div>
+        <div class="tm-hero-s">Normal workday. Vegas Tue forecast: 85°, dry, mild wind.</div>
       </div>
     </div>
 
     <div class="tm-list">
-      <div class="tm-row"><div class="tm-row-ic">🎤</div><div class="tm-row-t">First session <span class="hl">8:30 AM</span>. Keep 6:45 AM alarm.</div></div>
-      <div class="tm-row"><div class="tm-row-ic">🎸</div><div class="tm-row-t"><strong>Decide by 2 PM:</strong> Phish vs Next at Night. Atlas leans Phish.</div></div>
-      <div class="tm-row"><div class="tm-row-ic">🎟</div><div class="tm-row-t">If Phish: book by <span class="hl">10 AM</span>. Price climbing.</div></div>
-      <div class="tm-row"><div class="tm-row-ic">🧳</div><div class="tm-row-t">Pre-pack Friday-non-essentials tonight.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🎟</div><div class="tm-row-t"><strong>Phish decision by <span class="hl">9 AM</span>.</strong> Every 24h is about +18%. Do not carry this to Tuesday.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🧳</div><div class="tm-row-t">Final pack Monday evening. Suit + shoes + laptop + backup badge lanyard.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🪪</div><div class="tm-row-t">Verify REAL ID star. Passport in travel sleeve as backup.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">💬</div><div class="tm-row-t">Close Burns &amp; Mac threads that cannot wait. OOO auto-responder on by <span class="hl">6 PM</span>.</div></div>
     </div>
 
     <div class="tm-alarm">
-      <div class="tm-alarm-l">⏰ Alarm · <span style="color: var(--accent)">6:45 AM</span></div>
+      <div class="tm-alarm-l">⏰ Tue alarm · <span style="color: var(--accent)">6:30 AM CT</span></div>
       <button class="tm-alarm-btn" onclick="setAlarm(this)">Set</button>
     </div>
   </div>
 
 </div>
 
-<!-- VENUE MODE -->
+<!-- VENUE MODE (Mandalay, pre-view) -->
 <div data-loc="venue">
 
   <div class="next-up">
     <div class="next-up-head">
-      <div class="next-up-label">Next Session</div>
-      <div class="next-up-countdown">in 12 min</div>
+      <div class="next-up-label">Pre-view</div>
+      <div class="next-up-countdown">active Wed 9 AM</div>
     </div>
-    <div class="next-up-title">Building AI Agents on Vertex</div>
-    <div class="next-up-detail"><strong>West Hall · Breakout 3B</strong>. Leave the expo floor now — 6-min walk. Exit at the South doors past Anthropic booth.</div>
+    <div class="next-up-title">Venue mode activates at keynote</div>
+    <div class="next-up-detail">Session-by-session wayfinding, expo targets, nearest-restroom, and agent-to-agent pings come online when you are on the floor.</div>
     <div class="next-up-actions">
-      <button class="btn" onclick="toast('info', '<strong>Map opened</strong>')">🗺 Map</button>
-      <button class="btn" onclick="toast('info', '<strong>Notes ready</strong>')">📝 Notes</button>
-      <button class="btn primary" onclick="openActionSheet('reroute')">⚡ Re-route</button>
+      <button class="btn" onclick="toast('info', '<strong>Session list</strong> · agenda builder')">📅 Agenda</button>
+      <button class="btn primary" onclick="toast('accent', '<strong>Targets staged</strong> · Anthropic, Deloitte, PwC')">🎯 Targets</button>
     </div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">⚡ Right Now · Context-Aware</div></div></div>
-  <div class="heads-up">
-    <div class="hu-item" onclick="toggleReasoning(this)">
-      <div class="hu-icon accent">◉</div>
-      <div class="hu-body">
-        <div class="hu-title">Matt Olsen is 40 ft from you</div>
-        <div class="hu-note">LinkedIn colleague. At Anthropic booth #812 since 10:34 AM.</div>
-        <div class="hu-reasoning">
-          <strong>How Atlas knows:</strong> Matt's agent shared his approximate expo location. He's on your coffee-with list from last quarter. His next session is 11:30 AM — same as yours. Coffee after works.
-        </div>
-      </div>
-    </div>
-    <div class="hu-item" onclick="toggleReasoning(this)">
-      <div class="hu-icon warn">!</div>
-      <div class="hu-body">
-        <div class="hu-title">Your 1 PM and 2 PM are 12 min apart</div>
-        <div class="hu-note">South Hall → North Hall. 1 PM ends at 1:55. Atlas rerouted to a closer 1 PM.</div>
-      </div>
-    </div>
-    <div class="hu-item">
-      <div class="hu-icon info">i</div>
-      <div class="hu-body">
-        <div class="hu-title">Nearest restroom · 80 ft right</div>
-        <div class="hu-note">Past Deloitte booth. Less crowded than main floor.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section"><div class="section-head"><div class="section-title">🎯 Expo Targets</div><div class="section-action">3 of 7</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">🎯 Expo Targets · Staged</div><div class="section-action">3 priority</div></div></div>
   <div class="venues">
     <div class="venue">
       <div class="venue-top">
         <div>
-          <div class="venue-name">Anthropic · #812</div>
-          <div class="venue-tags">Priority 1<span class="tag-pipe">·</span>40 ft from you</div>
+          <div class="venue-name">Anthropic · booth TBD</div>
+          <div class="venue-tags">Priority 1<span class="tag-pipe">·</span>Jim Gorman</div>
         </div>
       </div>
-      <div class="venue-desc">Jim Gorman said he'd be here morning blocks. MCP gateway conversation still open.</div>
-      <div class="venue-foot">
-        <div class="venue-status"><span class="status-dot open"></span>Matt is there now</div>
-        <div class="venue-actions">
-          <button class="book-btn" onclick="toast('accent', '<strong>Visit logged</strong>')">✓ Visit</button>
-        </div>
-      </div>
+      <div class="venue-desc">MCP gateway conversation still open. Jim said he would be at the booth in morning blocks Wed + Thu.</div>
     </div>
     <div class="venue">
       <div class="venue-top">
         <div>
-          <div class="venue-name">Accenture · #1321</div>
-          <div class="venue-tags">Priority 2<span class="tag-pipe">·</span>4 min walk</div>
+          <div class="venue-name">Deloitte · booth TBD</div>
+          <div class="venue-tags">Priority 2<span class="tag-pipe">·</span>Matt Olsen</div>
         </div>
       </div>
-      <div class="venue-desc">Agentic AI GTM demo · John Veltri LinkedIn Live at 3:10 PM Thursday.</div>
-      <div class="venue-foot">
-        <div class="venue-status"><span class="status-dot open"></span>Open</div>
-        <div class="venue-actions">
-          <button class="book-btn" onclick="toast('accent', '<strong>Added</strong> to route')">+ Route</button>
-        </div>
-      </div>
+      <div class="venue-desc">Matt confirmed attending. Coffee-with list from last quarter. Ping his agent Wed AM.</div>
     </div>
-  </div>
-
-  <div class="section"><div class="section-head"><div class="section-title">⚡ Quick Actions</div></div></div>
-  <div style="padding: 0 20px;">
-    <div class="act-list">
-      <div class="act-opt" onclick="toast('accent', '<strong>$8.40 expensed</strong> · Trip/Vegas/Coffee')">
-        <div class="act-opt-ic">💳</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Log last receipt</div>
-          <div class="act-opt-s">Starbucks · $8.40 · auto-tagged</div>
+    <div class="venue">
+      <div class="venue-top">
+        <div>
+          <div class="venue-name">PwC Lounge</div>
+          <div class="venue-tags">Calendar-confirmed<span class="tag-pipe">·</span>Thu 8:30 AM + 4 PM</div>
         </div>
       </div>
-      <div class="act-opt" onclick="toast('accent', '<strong>Pinged Matt</strong> · waiting on his agent')">
-        <div class="act-opt-ic">👋</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Ping Matt — coffee after 11 AM?</div>
-          <div class="act-opt-s">Agent-to-agent · drafts, waits for both confirms</div>
-        </div>
-      </div>
-      <div class="act-opt" onclick="toast('accent', '<strong>Recording</strong> · Obsidian sync on')">
-        <div class="act-opt-ic">🎙</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Record + transcribe next session</div>
-          <div class="act-opt-s">Auto-summary to Obsidian vault after</div>
-        </div>
-      </div>
+      <div class="venue-desc">Enterprise AI session Thu morning, Cloud and Cocktails Thu 4-6 PM. Two scheduled touches already.</div>
     </div>
   </div>
 
@@ -612,31 +576,28 @@
 
   <div class="next-up">
     <div class="next-up-head">
-      <div class="next-up-label">You're Off-route</div>
-      <div class="next-up-countdown">detected</div>
+      <div class="next-up-label">Off-site picks</div>
+      <div class="next-up-countdown">pre-loaded</div>
     </div>
-    <div class="next-up-title">Replanning around your location</div>
-    <div class="next-up-detail">Atlas noticed you left Mandalay. No session until <strong>2:30 PM</strong> — you have 1h 40m.</div>
-    <div class="next-up-actions">
-      <button class="btn" onclick="toast('info', '<strong>Route queued</strong>')">↗ Back to venue</button>
-      <button class="btn primary" onclick="openVoice()">🎙 Tell Atlas</button>
-    </div>
+    <div class="next-up-title">Two regret flags parked here</div>
+    <div class="next-up-detail">Every Vegas trip you have surfaced these and never executed. Atlas is watching for a window.</div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">📍 Near You · Curated</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">📍 Regret-Flag Targets</div></div></div>
   <div class="venues">
     <div class="venue">
       <div class="venue-top">
         <div>
           <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Vesta+Coffee+Roasters+Las+Vegas">Vesta Coffee Roasters ↗</a></div>
-          <div class="venue-tags">Third-wave<span class="tag-pipe">·</span>4 min away</div>
+          <div class="venue-tags">Third-wave<span class="tag-pipe">·</span>Arts District<span class="tag-pipe">·</span>~10 min rideshare</div>
         </div>
       </div>
-      <div class="venue-desc">Arts District. You've flagged this every Vegas trip. Now's the window.</div>
+      <div class="venue-desc">Flagged every Vegas trip in memory, never visited. If Thu lunch compresses or Fri morning opens, this is the move.</div>
       <div class="venue-foot">
-        <div class="venue-status"><span class="status-dot open"></span>Open · 6:30 AM–4 PM</div>
+        <div class="venue-status"><span class="status-dot open"></span>Open 6:30 AM - 4 PM daily</div>
         <div class="venue-actions">
-          <button class="book-btn" onclick="toast('accent', '<strong>Route locked</strong>')">Navigate</button>
+          <a class="vote-btn up" href="mailto:jeff@danley.net?subject=atlas-vote&body=Vesta%20Coffee%20up%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'up')">👍</a>
+          <a class="vote-btn down" href="mailto:jeff@danley.net?subject=atlas-vote&body=Vesta%20Coffee%20down%20trip%3Dlasvegas-april-2026" onclick="markVoted(this,'down')">👎</a>
         </div>
       </div>
     </div>
@@ -644,21 +605,10 @@
       <div class="venue-top">
         <div>
           <div class="venue-name"><a href="https://www.google.com/maps/search/?api=1&query=Red+Rock+Canyon+Las+Vegas">Red Rock Canyon ↗</a></div>
-          <div class="venue-tags">Scenic drive<span class="tag-pipe">·</span>22 min</div>
+          <div class="venue-tags">Scenic loop<span class="tag-pipe">·</span>25 min drive</div>
         </div>
       </div>
-      <div class="venue-desc">Too far today (1h 40m window). Flagged for Thursday lunch gap if you need a reset.</div>
-    </div>
-  </div>
-
-  <div class="section"><div class="section-head"><div class="section-title">🚨 Don't Forget</div></div></div>
-  <div class="heads-up">
-    <div class="hu-item">
-      <div class="hu-icon warn">!</div>
-      <div class="hu-body">
-        <div class="hu-title">2:30 PM session is seat-reserved</div>
-        <div class="hu-note">Leave wherever you are by 2:10 PM.</div>
-      </div>
+      <div class="venue-desc">Flagged 2 trips, never executed. Unlikely this run given the conference density, but if Thu morning opens up, a 2h round-trip works.</div>
     </div>
   </div>
 
@@ -669,68 +619,51 @@
 
   <div class="next-up">
     <div class="next-up-head">
-      <div class="next-up-label">Boarding Soon</div>
-      <div class="next-up-countdown">in 38 min</div>
+      <div class="next-up-label">Friday Return</div>
+      <div class="next-up-countdown">in 5 days</div>
     </div>
-    <div class="next-up-title">Gate C7 · Southwest 2244 to MCI</div>
-    <div class="next-up-detail"><strong>On time.</strong> Boarding group A32. You're 4 gates away in Terminal 1C. Bathroom between here and the gate.</div>
+    <div class="next-up-title">WN 1579 · LAS → MCI · 1:10 PM PT</div>
+    <div class="next-up-detail">A-list auto-check-in. Pair with Michelob Ultra luggage valet (6 AM - 5 PM) so you do not wheel-in at Mandalay.</div>
     <div class="next-up-actions">
-      <button class="btn" onclick="toast('info', '<strong>Boarding pass</strong>')">🎫 Pass</button>
-      <button class="btn" onclick="toast('info', '<strong>Gate map</strong>')">🗺 Gate</button>
-      <button class="btn primary" onclick="toast('accent', '<strong>Marcie notified</strong> · ETA 6:12 PM')">📨 Notify home</button>
+      <button class="btn" onclick="toast('info', '<strong>Boarding pass</strong> · Southwest app')">🎫 Pass</button>
+      <button class="btn primary" onclick="toast('accent', '<strong>Marcie pre-notified</strong> · 6 PM arrival')">📨 Notify home</button>
     </div>
   </div>
 
   <div class="flight">
     <div class="flight-head">
-      <div class="flight-num">SOUTHWEST 2244</div>
-      <div class="flight-status on">● On Time</div>
+      <div class="flight-num">SOUTHWEST 1579</div>
+      <div class="flight-status on">● Scheduled</div>
     </div>
     <div class="flight-body">
       <div class="flight-side">
         <div class="flight-code">LAS</div>
-        <div class="flight-time">3:05 PM</div>
-        <div class="flight-city">Harry Reid · C7</div>
+        <div class="flight-time">1:10 PM PT</div>
+        <div class="flight-city">Harry Reid · Fri 4/24</div>
       </div>
       <div class="flight-mid-line"></div>
       <div class="flight-side" style="text-align: right;">
         <div class="flight-code">MCI</div>
-        <div class="flight-time">6:02 PM</div>
-        <div class="flight-city">Kansas City · B</div>
+        <div class="flight-time">6:00 PM CT</div>
+        <div class="flight-city">Kansas City</div>
       </div>
     </div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">📋 Trip Wrap-Up</div></div></div>
-  <div style="padding: 0 20px;">
-    <div class="act-list">
-      <div class="act-opt" onclick="toast('accent', '<strong>4.5 stars</strong> · best = Yardbird')">
-        <div class="act-opt-ic">⭐</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Rate this trip</div>
-          <div class="act-opt-s">Quick tap · feeds the next trip's recs</div>
-        </div>
+  <div class="section"><div class="section-head"><div class="section-title">🧳 Friday Bag Choreography</div></div></div>
+  <div class="heads-up">
+    <div class="hu-item">
+      <div class="hu-icon warn">!</div>
+      <div class="hu-body">
+        <div class="hu-title">Rollerbag banned inside venue</div>
+        <div class="hu-note">12" × 18" max. Use Michelob Ultra luggage valet in the arena hallway.</div>
       </div>
-      <div class="act-opt" onclick="toast('accent', '<strong>12 expenses submitted</strong> · $847 total')">
-        <div class="act-opt-ic">💳</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Submit expenses</div>
-          <div class="act-opt-s">12 items captured · pre-categorized · ready</div>
-        </div>
-      </div>
-      <div class="act-opt" onclick="toast('accent', '<strong>3 LinkedIn adds queued</strong>')">
-        <div class="act-opt-ic">🤝</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Follow-ups from badge scans</div>
-          <div class="act-opt-s">3 people · Atlas drafted intros</div>
-        </div>
-      </div>
-      <div class="act-opt" onclick="toast('accent', '<strong>Obsidian note created</strong>')">
-        <div class="act-opt-ic">📝</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Dump session notes</div>
-          <div class="act-opt-s">7 sessions transcribed · summarized</div>
-        </div>
+    </div>
+    <div class="hu-item">
+      <div class="hu-icon info">i</div>
+      <div class="hu-body">
+        <div class="hu-title">Friday plan Atlas drafted</div>
+        <div class="hu-note">9:30 AM check out NY-NY then 10 AM drop bags Mandalay valet then 2 sessions max then 11:30 AM pickup then noon Uber to LAS then 1:10 PM wheels-up.</div>
       </div>
     </div>
   </div>
@@ -738,26 +671,26 @@
   <div class="section"><div class="section-head"><div class="section-title">🏠 Home Context</div></div></div>
   <div class="heads-up">
     <div class="hu-item">
-      <div class="hu-icon info">i</div>
-      <div class="hu-body">
-        <div class="hu-title">Marcie's expecting you ~6:45 PM</div>
-        <div class="hu-note">Traffic on 71 S moderate. Auto-text when wheels-down?</div>
-      </div>
-    </div>
-    <div class="hu-item">
       <div class="hu-icon accent">◉</div>
       <div class="hu-body">
         <div class="hu-title">Friday evening pre-blocked as rest</div>
-        <div class="hu-note">Day-4 fatigue pattern. Saturday calendar clear too.</div>
+        <div class="hu-note">Day-4 fatigue pattern. Saturday also clear. Marcie expects you ~6:45 PM CT.</div>
       </div>
     </div>
   </div>
 
 </div>
 
+<div class="action-bar">
+  <button class="voice-btn" id="voiceBtn" onclick="openVoice()">
+    <svg class="mic-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+    Ask Atlas
+  </button>
+</div>
+
 <div class="foot">
   <div class="foot-sig">Atlas · for <span class="accent">Jeff</span></div>
-  <div class="foot-upd">Last sync: Wed Apr 22 · 8:13 AM PT</div>
+  <div class="foot-upd">Last sync: Sun Apr 19 · 7:55 PM CDT · morning run</div>
 </div>
 
 <div class="modal-bg" id="voiceModal">
@@ -790,46 +723,32 @@
       <button class="modal-close" onclick="closeModal('budgetModal')">✕</button>
     </div>
     <div style="font-size: 13px; color: var(--text-dim); line-height: 1.5; margin-bottom: 14px;">
-      Atlas can spend up to $500 on your behalf without asking. You see every action after.
+      Pre-trip. $0 spent. Phish ticket is the first expected line item. Atlas will not auto-purchase without your explicit confirmation.
     </div>
     <div class="act-list">
       <div class="act-opt">
         <div class="act-opt-ic">🎟</div>
         <div class="act-opt-body">
-          <div class="act-opt-t">Phish ticket · $118</div>
-          <div class="act-opt-s">Queued · auto-buy at 2 PM if undecided</div>
+          <div class="act-opt-t">Phish · ~$118 projected</div>
+          <div class="act-opt-s">Pending your YES/NO by Wed 2 PM PT</div>
         </div>
       </div>
       <div class="act-opt">
         <div class="act-opt-ic">🚗</div>
         <div class="act-opt-body">
-          <div class="act-opt-t">Rideshare · $22 (Tue)</div>
-          <div class="act-opt-s">Auto-booked · LAS to NY-NY</div>
-        </div>
-      </div>
-      <div class="act-opt">
-        <div class="act-opt-ic">🛏</div>
-        <div class="act-opt-body">
-          <div class="act-opt-t">Room upgrade · $40</div>
-          <div class="act-opt-s">Auto-accepted · Strip view · you sleep 23 min better with view data</div>
+          <div class="act-opt-t">Rideshare LAS → NY-NY · ~$22 Tue</div>
+          <div class="act-opt-s">Tap-to-book at wheels-down</div>
         </div>
       </div>
       <div class="act-opt">
         <div class="act-opt-ic">☕</div>
         <div class="act-opt-body">
-          <div class="act-opt-t">Coffee + dinners · $162</div>
-          <div class="act-opt-s">Logged · auto-categorized</div>
+          <div class="act-opt-t">Coffee + meals estimate · ~$160</div>
+          <div class="act-opt-s">Wed-Fri lunches are conference-provided</div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="action-bar">
-  <button class="voice-btn" id="voiceBtn" onclick="openVoice()">
-    <svg class="mic-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
-    Ask Atlas
-  </button>
 </div>
 
 <script>
@@ -839,10 +758,10 @@
   const ctxLabel = document.getElementById('ctxLabel');
 
   const locContext = {
-    hotel: { label: 'At New York-New York', sub: 'Opening keynote at <strong>9:00 AM</strong>. Badge in hand from last night. You\'re ahead of the crowd.' },
-    venue: { label: 'At Mandalay Bay · Expo Floor', sub: 'Next session in <strong>12 min</strong>. Atlas is tracking your path.' },
-    offsite: { label: 'Off-site · Arts District', sub: '1h 40m window. Atlas replanning around your location.' },
-    airport: { label: 'At LAS · Terminal 1C', sub: 'Southwest 2244 boarding <strong>in 38 min</strong>. On time.' }
+    hotel: { label: 'Home · Kansas City', sub: '48 hours to wheels-up. <strong>Southwest 3033</strong> confirmed, PNR <strong>AWWCMA</strong>. One decision left: Phish.' },
+    venue: { label: 'Pre-view · Mandalay Bay', sub: 'Venue mode activates Wed 9 AM at the opening keynote.' },
+    offsite: { label: 'Off-site picks pre-loaded', sub: 'Vesta Coffee and Red Rock have been flagged across multiple Vegas trips.' },
+    airport: { label: 'Return flight · Fri Apr 24', sub: 'Southwest 1579 · LAS to MCI · 1:10 PM PT. Pair with Mandalay luggage valet.' }
   };
 
   locButtons.forEach(b => {
@@ -858,14 +777,6 @@
     });
   });
 
-  // Vote buttons are <a href="mailto:..."> links. Tapping opens Mail
-  // prefilled with subject "atlas-vote" and a structured body. v1 parks
-  // these emails in Jeff's inbox for manual review post-trip; the live
-  // ingest webhook is deferred (see docs/V2-BACKLOG.md and
-  // memory/taste-graph.md).
-  //
-  // This handler only updates local UI. It does NOT call preventDefault,
-  // so the mailto: href still fires on tap and opens Mail.
   function markVoted(el, dir) {
     const parent = el.parentElement;
     const isUp = dir === 'up';
@@ -878,14 +789,14 @@
   function bookVenue(btn, label) {
     if (btn.classList.contains('booked')) return;
     btn.classList.add('booked');
-    btn.textContent = '✓ Booked';
-    toast('accent', `<strong>Booked</strong> · ${label}`);
+    btn.textContent = '✓ Planned';
+    toast('accent', `<strong>Planned</strong> · ${label}`);
   }
 
   function setAlarm(btn) {
     btn.classList.add('set');
     btn.textContent = '✓ Set';
-    toast('accent', '<strong>Alarm set</strong> · 6:45 AM · auto-adjusts for sleep data');
+    toast('accent', '<strong>Alarm set</strong> · Tue 6:30 AM · MCI 75-min pad');
   }
 
   function toggleReasoning(el, isVenue) {
@@ -933,21 +844,21 @@
     document.getElementById('voiceContent').innerHTML = `
       <div class="voice-status"><span class="pulse"></span>Ready</div>
       <div class="voice-prompts">
-        <div class="voice-prompt-label">TAP A PROMPT TO DEMO</div>
-        <div class="voice-prompt" onclick="askAtlas('I want to bail on the 3 PM and hit the expo floor instead. Re-plan.')">
-          "I want to bail on the 3 PM and hit the expo floor instead. Re-plan."
+        <div class="voice-prompt-label">TAP A PROMPT</div>
+        <div class="voice-prompt" onclick="askAtlas('Lock Phish Thursday. Best available under 200. Confirm with me first.')">
+          "Lock Phish Thursday. Best available under 200. Confirm first."
         </div>
-        <div class="voice-prompt" onclick="askAtlas('Book Phish at Sphere Thursday night, best available under 200 dollars.')">
-          "Book Phish at Sphere Thursday night, best available under $200."
+        <div class="voice-prompt" onclick="askAtlas('What should I pack Monday night that I always forget?')">
+          "What should I pack Monday night that I always forget?"
         </div>
-        <div class="voice-prompt" onclick="askAtlas('What should I do with this free 90 minutes before dinner?')">
-          "What should I do with this free 90 minutes before dinner?"
+        <div class="voice-prompt" onclick="askAtlas('Draft a one-line Marcie text I can send Tuesday morning before boarding.')">
+          "Draft a Marcie text for Tuesday morning before boarding."
         </div>
-        <div class="voice-prompt" onclick="askAtlas('Text Marcie that I love her and landing tomorrow at 6.')">
-          "Text Marcie that I love her and landing tomorrow at 6."
+        <div class="voice-prompt" onclick="askAtlas('What is the one Gemini reveal in the keynote I cannot miss?')">
+          "What is the one Gemini reveal in the keynote I cannot miss?"
         </div>
-        <div class="voice-prompt" onclick="askAtlas('My HRV is trashed. What should I skip today?')">
-          "My HRV is trashed. What should I skip today?"
+        <div class="voice-prompt" onclick="askAtlas('If Cloud and Cocktails runs late Thursday, how do I still make Phish?')">
+          "If Cloud and Cocktails runs late Thursday, how do I still make Phish?"
         </div>
       </div>
     `;
@@ -980,20 +891,18 @@
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 800,
-          system: `You are Atlas, Jeff Danley's personal AI travel agent in Jarvis Mode. Jeff is in Las Vegas for Google Cloud Next '26 (Apr 22-24) at Mandalay Bay. Staying at New York-New York. Flying Southwest direct KC/LAS, home flight 3 PM Friday. Solo trip. Wife is Marcie. He's Innovation Development Director at Burns & McDonnell. Phish is at Sphere Thursday and Friday nights — Thursday is the only viable night given his Friday flight.
+          system: `You are Atlas, Jeff Danley's personal AI travel agent. Today is Sunday April 19, 2026. Jeff is home in Kansas City, 2 days from departing to Google Cloud Next '26 in Las Vegas (Apr 21-24). Flight: Southwest 3033 Tue 3:40 PM CT, PNR AWWCMA. Staying at New York-New York Room 2847. Return: Southwest 1579 Fri 1:10 PM PT. Solo trip. Wife is Marcie. He is Innovation Development Director at Burns & McDonnell.
 
-Voice rules (CRITICAL):
-- Match Jeff's direct, no-preamble style
-- No "I'd be happy to" or "Let me help"
-- Be decisive. Make the call. Don't ladder options unless truly needed
-- Act like you just DID the thing, not like you're about to
-- No em dashes. Never say "delve" or "certainly" or "absolutely"
-- Short punchy sentences. Line breaks for scannability
-- Reference concrete trip details
+Key open items: Phish at Sphere Thursday (tickets ~$118, rising), Wed client reception at Skyfall 7-10 PM, Thu PwC Cloud and Cocktails 4-6 PM then Phish.
+
+Voice rules:
+- Direct, no preamble
+- Be decisive. Make the call
+- Act like you just DID the thing
+- No em dashes. Never say delve, certainly, absolutely
+- Short punchy sentences
 - Under 120 words
-- Start with the action, not context
-
-Respond as Atlas taking action.`,
+- Start with the action`,
           messages: [{ role: "user", content: prompt }]
         })
       });
@@ -1026,72 +935,6 @@ Respond as Atlas taking action.`,
         </div>
       `;
     }
-  }
-
-  function openActionSheet(type) {
-    const sheets = {
-      rideshare: {
-        title: 'Rideshare to Mandalay',
-        body: `
-          <div class="act-list">
-            <div class="act-opt" onclick="toast('accent', '<strong>Uber booked</strong> · 3 min away'); closeModal('actionModal')">
-              <div class="act-opt-ic">🚗</div>
-              <div class="act-opt-body">
-                <div class="act-opt-t">Uber · $14 · 3 min</div>
-                <div class="act-opt-s">UberX · direct to Mandalay entrance</div>
-              </div>
-            </div>
-            <div class="act-opt" onclick="toast('accent', '<strong>Lyft booked</strong> · 4 min away'); closeModal('actionModal')">
-              <div class="act-opt-ic">🚕</div>
-              <div class="act-opt-body">
-                <div class="act-opt-t">Lyft · $12 · 4 min</div>
-                <div class="act-opt-s">Standard · $2 cheaper</div>
-              </div>
-            </div>
-            <div class="act-opt" onclick="toast('info', '<strong>Walking route</strong>'); closeModal('actionModal')">
-              <div class="act-opt-ic">🚶</div>
-              <div class="act-opt-body">
-                <div class="act-opt-t">Walk via tram · 15 min</div>
-                <div class="act-opt-s">Free · bridge → Excalibur tram → Mandalay</div>
-              </div>
-            </div>
-          </div>
-        `
-      },
-      reroute: {
-        title: 'Re-route Your Day',
-        body: `
-          <div style="font-size: 13px; color: var(--text-dim); margin-bottom: 14px;">Atlas has 3 ways to reshape the next 3 hours.</div>
-          <div class="act-list">
-            <div class="act-opt" onclick="toast('accent', '<strong>Plan updated</strong>'); closeModal('actionModal')">
-              <div class="act-opt-ic">🎯</div>
-              <div class="act-opt-body">
-                <div class="act-opt-t">Skip 3 PM · hit Anthropic + Accenture booths</div>
-                <div class="act-opt-s">Keeps 4 PM session · adds 2 booth visits</div>
-              </div>
-            </div>
-            <div class="act-opt" onclick="toast('accent', '<strong>Coffee with Matt booked</strong>'); closeModal('actionModal')">
-              <div class="act-opt-ic">☕</div>
-              <div class="act-opt-body">
-                <div class="act-opt-t">Replace 3 PM with Matt coffee</div>
-                <div class="act-opt-s">Pings Matt's agent · finds window · books spot</div>
-              </div>
-            </div>
-            <div class="act-opt" onclick="toast('accent', '<strong>Break blocked</strong>'); closeModal('actionModal')">
-              <div class="act-opt-ic">🧘</div>
-              <div class="act-opt-body">
-                <div class="act-opt-t">Power nap at hotel · 45 min</div>
-                <div class="act-opt-s">HRV tanked · you slept 5h 12m · back for 5:30</div>
-              </div>
-            </div>
-          </div>
-        `
-      }
-    };
-    const s = sheets[type];
-    document.getElementById('actModalTitle').textContent = s.title;
-    document.getElementById('actModalBody').innerHTML = s.body;
-    openModal('actionModal');
   }
 
   resetVoice();
