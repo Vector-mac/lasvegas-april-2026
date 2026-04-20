@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0f">
-<title>Atlas · Vegas · T-2</title>
+<title>Atlas · Vegas · T-2 · Sun PM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -150,6 +150,7 @@
   .tag-upd { background: var(--info-dim); color: var(--info); }
   .tag-alert { background: var(--warn-dim); color: var(--warn); }
   .tag-act { background: var(--accent-dim); color: var(--accent); }
+  .tag-eod { background: var(--sphere-dim); color: var(--sphere); }
 
   .tomorrow { margin: 16px 20px; padding: 16px; background: linear-gradient(180deg, var(--bg-elev), var(--bg-elev-2)); border: 1px solid var(--border-bright); border-radius: 16px; }
   .tm-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-dim); }
@@ -237,6 +238,10 @@
 
   .phase-banner { margin: 12px 20px 0; padding: 8px 12px; background: linear-gradient(90deg, rgba(168,85,247,0.1), rgba(59,130,246,0.1)); border: 1px solid rgba(168,85,247,0.25); border-radius: 10px; font-size: 11px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
   .phase-banner strong { color: var(--sphere); font-weight: 700; }
+
+  .eod { margin: 12px 20px 0; padding: 12px 14px; background: linear-gradient(135deg, rgba(168,85,247,0.10), rgba(59,130,246,0.06)); border: 1px solid rgba(168,85,247,0.28); border-radius: 12px; font-size: 12px; color: var(--text); line-height: 1.5; }
+  .eod-label { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sphere); margin-bottom: 5px; }
+  .eod strong { color: var(--text); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -249,7 +254,7 @@
 <div class="hdr">
   <div class="hdr-left">
     <div class="hdr-logo">A</div>
-    <div class="hdr-title">Atlas · <span class="accent">Pre-Trip</span></div>
+    <div class="hdr-title">Atlas · <span class="accent">Sun PM</span></div>
   </div>
   <div class="hdr-right">
     <button class="budget-pill" onclick="openBudget()">◆ $0 / $500</button>
@@ -258,7 +263,12 @@
 </div>
 
 <div class="phase-banner">
-  <strong>T-2 DAYS</strong> · Vegas · Google Cloud Next '26 · Depart Tue 3:40 PM CT
+  <strong>T-2 DAYS · EVENING</strong> · Wheels-up Tue 3:40 PM CT · WN 3033
+</div>
+
+<div class="eod">
+  <div class="eod-label">End of Day · Sun Apr 19</div>
+  Today closed clean. Laundry done, light pack staged. <strong>Two opens left for tonight:</strong> verify REAL ID star on your MO license, set the Mon 9 AM Phish reminder. Then lights out · target 11 PM for 7 hrs.
 </div>
 
 <div class="locbar">
@@ -273,13 +283,14 @@
 
 <div class="hero">
   <div class="hero-meta">
-    <span>Day 0 · Pre-trip</span><span class="dot"></span><span id="ctxLabel">Home · Kansas City</span>
+    <span>Day 0 · Pre-trip · 9:00 PM CDT</span><span class="dot"></span><span id="ctxLabel">Home · Kansas City</span>
   </div>
-  <div class="hero-date">Sun, Apr 19</div>
-  <div class="hero-sub" id="heroSub">~43 hours to wheels-up. <strong>Southwest 3033</strong> confirmed, PNR <strong>AWWCMA</strong>. One decision left: Phish.</div>
+  <div class="hero-date">Sun, Apr 19 · PM</div>
+  <div class="hero-sub" id="heroSub">Day closes with two small opens. Tomorrow is your <strong>last KC workday</strong>. Tuesday 3:40 PM CT is wheels-up.</div>
   <div class="hero-chips">
-    <span class="chip">🌙 KC <span class="chip-val">69°F clear</span></span>
-    <span class="chip">☀️ LAS Tue <span class="chip-val">85° / 59°</span></span>
+    <span class="chip">🌙 KC now <span class="chip-val">54°F clear</span></span>
+    <span class="chip">☀️ KC Mon <span class="chip-val">69° / 43°</span></span>
+    <span class="chip">☀️ LAS Tue <span class="chip-val">85° / 60°</span></span>
     <span class="chip">🏨 <span class="chip-val">NY-NY · Rm 2847</span></span>
   </div>
 </div>
@@ -289,15 +300,15 @@
 
   <div class="next-up">
     <div class="next-up-head">
-      <div class="next-up-label">Decision Window</div>
-      <div class="next-up-countdown">closes Wed 2 PM PT</div>
+      <div class="next-up-label">Tonight · 2 opens</div>
+      <div class="next-up-countdown">before sleep</div>
     </div>
-    <div class="next-up-title">Lock Phish at Sphere · Thu night</div>
-    <div class="next-up-detail">Last cached price <strong>$118</strong> (up from $95 Mon). Thursday is your only viable night. Atlas leans <strong>YES</strong>. Buy before Monday close and save ~$25.</div>
+    <div class="next-up-title">REAL ID check + set 9 AM Phish nudge</div>
+    <div class="next-up-detail">5 minutes of work. <strong>Verify the star on your MO license.</strong> Then park the Phish decision on tomorrow's 9 AM calendar so it stops circling. Market deadline is Wed 2 PM PT, so Mon AM keeps you ahead of the price curve.</div>
     <div class="next-up-actions">
-      <a class="btn" href="https://www.google.com/search?q=Phish+Sphere+Las+Vegas+April+23+2026+tickets">🎟 Tickets</a>
-      <button class="btn" onclick="toast('info', '<strong>Reasoning expanded</strong> · scroll down to Heads Up')">🧠 Why</button>
-      <button class="btn primary" onclick="toast('accent', '<strong>Reminder set</strong> · Mon 9 AM · Phish decision')">⏰ Remind</button>
+      <a class="btn" href="https://www.tsa.gov/real-id">🪪 REAL ID</a>
+      <button class="btn" onclick="toast('info', '<strong>Passport</strong> · domestic backup works if license lacks star')">🛂 Backup</button>
+      <button class="btn primary" onclick="toast('accent', '<strong>Mon 9 AM reminder set</strong> · Phish decision')">⏰ Set 9 AM</button>
     </div>
   </div>
 
@@ -305,15 +316,16 @@
   <div class="heads-up">
 
     <div class="hu-item" onclick="toggleReasoning(this)">
-      <div class="hu-icon accent">✓</div>
+      <div class="hu-icon accent">🎟</div>
       <div class="hu-body">
-        <div class="hu-title">Date conflict resolved · trip is Apr 21-24</div>
-        <div class="hu-note">State file confirmed by Southwest PNR + Calendar. Obsidian trip note (Apr 23-26) is stale.</div>
+        <div class="hu-title">Phish at Sphere · still open · decide Mon 9 AM</div>
+        <div class="hu-note">Cached $118 (Phish.net API still down at 20:45). Thursday is your only viable night. Atlas leans YES.</div>
         <div class="hu-reasoning">
-          <strong>What Atlas reconciled this morning:</strong><br>
-          • Southwest AWWCMA itinerary: out Tue 4/21 3:40 PM CT, back Fri 4/24 1:10 PM PT<br>
-          • Calendar events placed at Mandalay Bay Wed-Fri 4/22-4/24<br>
-          • Your Obsidian note at <em>Travel/Trips/2026-04-LasVegas.md</em> still says Apr 23-26. Hand-edit or Atlas can patch next run.
+          <strong>Why Mon 9 AM and not tonight:</strong><br>
+          • Phish.net pricing API has been unavailable since the morning run. Fresh price requested first thing Monday.<br>
+          • Last verified snapshot was $118 on Tue, trending +18%/day.<br>
+          • Wed 2 PM PT is the real market deadline. Mon AM gives you a 48h comfort buffer.<br>
+          • Regret-flag rule: you skipped Sphere × Phish last Vegas trip, mentioned it twice after. Tier-1 surface.
         </div>
       </div>
     </div>
@@ -321,30 +333,14 @@
     <div class="hu-item" onclick="toggleReasoning(this)">
       <div class="hu-icon warn">!</div>
       <div class="hu-body">
-        <div class="hu-title">Wed 7 PM client reception pre-empts dinner</div>
-        <div class="hu-note">Skyfall Lounge @ Mandalay. 3 hours, gourmet bites. You're not booking a 7:30 solo dinner Wed.</div>
+        <div class="hu-title">Tue 4:30 PM KC AI Club meetup · you'll be in the air</div>
+        <div class="hu-note">Keystone CoLAB event (Chris Kovac). You RSVP'd accepted back on 4/4. WN 3033 pushes back 3:40 PM CT. Send a quick regret tonight so Chris can adjust head count.</div>
         <div class="hu-reasoning">
-          <strong>How Wed night now shapes:</strong><br>
-          • Keynote 9 AM then lunch on-site then breakout block<br>
-          • 5:30 PM expo close-out (Anthropic, Accenture)<br>
-          • 7:00-10:00 PM Skyfall reception (calendar confirmed, organizer accepted)<br>
-          • Venue serves food. Skip the 7:30 dinner slot. If hungry late, Nine Fine Irishmen is in your hotel.
-        </div>
-      </div>
-    </div>
-
-    <div class="hu-item" onclick="toggleReasoning(this)">
-      <div class="hu-icon sphere">◉</div>
-      <div class="hu-body">
-        <div class="hu-title">Thu transition · PwC 4-6 PM then Sphere</div>
-        <div class="hu-note">Cloud and Cocktails at PwC ends 6 PM. Phish doors typically 7:30. Tight but clean.</div>
-        <div class="hu-reasoning">
-          <strong>Thu evening plan if Phish locked:</strong><br>
-          • 4:00-6:00 PM · Cloud and Cocktails, PwC Lounge (demos and light food)<br>
-          • 6:00 PM · Rideshare Mandalay to Sphere (~12 min)<br>
-          • 6:30 PM · Grab real food near Venetian/Palazzo (bar seat, 45 min)<br>
-          • 7:30 PM · Phish doors at Sphere<br>
-          • You skip Next at Night. Weezer + Benson Boone are not on your watchlist.
+          <strong>What the calendar shows:</strong><br>
+          • Event: KC AI Club April Meetup "Open Mic Night", Tue Apr 21, 4:30-7:15 PM<br>
+          • Your RSVP status: accepted (likely pre-trip-confirmation, before Vegas dates locked)<br>
+          • You'll be wheels-up LAS by 4:45 PM PT = 6:45 PM CT<br>
+          • Send a 1-line note tonight or tomorrow AM. Mention the trip, offer to catch the May meetup.
         </div>
       </div>
     </div>
@@ -352,13 +348,29 @@
     <div class="hu-item" onclick="toggleReasoning(this)">
       <div class="hu-icon info">i</div>
       <div class="hu-body">
-        <div class="hu-title">REAL ID check before Tuesday</div>
-        <div class="hu-note">Southwest flagged it in your itinerary email. Verify your MO license shows the star.</div>
+        <div class="hu-title">KC overnight cooling · 43° by Monday dawn</div>
+        <div class="hu-note">Morning run had Mon at 82°/60°. Fresh pull tonight: 69°/43° sunny. Still a normal workday, just a colder commute.</div>
         <div class="hu-reasoning">
-          <strong>If not REAL ID compliant:</strong><br>
-          • Passport works as backup (TSA accepts it for domestic)<br>
-          • You have PreCheck, so this is fast either way<br>
-          • Worst case: MO DOR Lee's Summit office opens 8 AM Mon
+          <strong>What to note:</strong><br>
+          • Nothing that moves the trip. LAS Tue still 85°/60°, no forecast shift for departure or arrival.<br>
+          • Wear a layer Mon AM. You won't need it by 1 PM.<br>
+          • No impact on MCI Tue commute, flight ops, or pack list.
+        </div>
+      </div>
+    </div>
+
+    <div class="hu-item" onclick="toggleReasoning(this)">
+      <div class="hu-icon sphere">◉</div>
+      <div class="hu-body">
+        <div class="hu-title">Thu transition still the tight spot · PwC → Sphere</div>
+        <div class="hu-note">Cloud and Cocktails at PwC Lounge 4:00-6:00 PM. Phish doors typically 7:30. Yardbird bar at 6:30 parks you next to Sphere.</div>
+        <div class="hu-reasoning">
+          <strong>Thu evening plan if Phish locks Monday:</strong><br>
+          • 4:00-6:00 PM · Cloud and Cocktails, PwC Lounge (demos + light food)<br>
+          • 6:00 PM · Rideshare Mandalay → Venetian side (~12 min)<br>
+          • 6:30 PM · Yardbird bar seat (45 min, fried chicken)<br>
+          • 7:30 PM · Phish doors at Sphere<br>
+          • You skip Next at Night. Weezer + Benson Boone not on watchlist.
         </div>
       </div>
     </div>
@@ -370,11 +382,13 @@
   <div class="timeline">
     <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">Sat</div><div class="tl-title done">Badge reg + agenda builder sessions reserved</div></div>
     <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">Sun AM</div><div class="tl-title done">Laundry · work clothes ready</div></div>
-    <div class="tl-item"><div class="tl-dot now"></div><div class="tl-time now">SUN PM · NOW</div><div class="tl-title">Wind down · light pack</div><div class="tl-note">Charger, dongles, note-taking rig, gym shoes. Suit goes in tomorrow so it does not wrinkle.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON AM</div><div class="tl-title">Workday · Burns &amp; Mac office</div><div class="tl-note">Close anything that cannot wait. Phish decision by 9 AM so it is off your plate.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON PM</div><div class="tl-title">Final pack + boarding pass check</div><div class="tl-note">A-list auto-checks in. Confirm seat window preference, lane to MCI.</div></div>
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-time">Sun PM</div><div class="tl-title done">Light pack · charger, dongles, note-taking rig, gym shoes</div></div>
+    <div class="tl-item"><div class="tl-dot now"></div><div class="tl-time now">SUN 9 PM · NOW</div><div class="tl-title">Wind down · 2 opens before bed</div><div class="tl-note">REAL ID star check. Mon 9 AM reminder on the Phish decision. Then lights out by 11 so Monday is clean.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON 9 AM</div><div class="tl-title">Phish decision · pull fresh price</div><div class="tl-note">Phish.net or StubHub. Atlas leans YES, budget $150. Do not carry this to Tuesday.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON DAY</div><div class="tl-title">Workday · Burns &amp; Mac office</div><div class="tl-note">Close threads that cannot wait. OOO auto-responder live by 6 PM. Regret to KC AI Club before the meetup.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">MON PM</div><div class="tl-title">Final pack + boarding pass check</div><div class="tl-note">Suit, shoes, laptop, lanyard, charger brick. A-list auto-checks in overnight. Confirm window seat preference.</div></div>
     <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TUE 2:00 PM</div><div class="tl-title">Leave for MCI · 75-min pad</div><div class="tl-note">PreCheck open. WN 3033 departs 3:40 PM CT.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TUE 4:45 PM PT</div><div class="tl-title">Wheels down LAS · rideshare NY-NY</div><div class="tl-note">~5 min ride. Hit hotel, drop bag, then badge pickup before 10 PM (skips Wed 8 AM line).</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TUE 4:45 PM PT</div><div class="tl-title">Wheels down LAS · rideshare NY-NY</div><div class="tl-note">~5 min ride. Drop bag, then badge pickup before 10 PM (skips Wed 8 AM line).</div></div>
   </div>
   </div>
 
@@ -462,44 +476,48 @@
       <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Sphere × Phish regret flag.</strong> You skipped last Vegas trip and mentioned it twice after. Tier-1 surface every Vegas run until cleared.</div></div>
       <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Solo bar seating</strong> · 9 of last 11 solo dinners. Defaulting Gordon Ramsay + Yardbird to bar.</div></div>
       <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Avoid "scene" restaurants</strong> · 6 of last 8 👎 tagged this. Carbone, Catch, TAO, Beauty &amp; Essex auto-excluded.</div></div>
-      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Coffee before any pre-10 AM meeting.</strong> Vesta Coffee Roasters flagged every Vegas trip, never visited. If Thu lunch opens up, that is the move.</div></div>
+      <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Day-0 sleep bank</strong> matters · last two trips Jeff averaged &lt;6 hr the night before departure. Tonight's 7-hr target is not optional.</div></div>
       <div class="mem-row"><span class="mem-ic">◆</span><div><strong>Day-4 conference fatigue</strong> across 7 events. Friday 2 sessions max, protect afternoon for expo + bag valet.</div></div>
     </div>
   </div>
 
-  <div class="section"><div class="section-head"><div class="section-title">📡 Atlas Updates</div><div class="section-action">Morning run · 8:32 PM CDT</div></div></div>
+  <div class="section"><div class="section-head"><div class="section-title">📡 Atlas Updates</div><div class="section-action">Evening run · 9:00 PM CDT</div></div></div>
   <div class="feed">
     <div class="feed-item">
-      <div class="feed-ts">Sun · 8:32 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Second morning pass. Nothing new in Gmail since 7:55 PM. Calendar clean tonight. Hold the line on Phish decision · Monday 9 AM.</div>
+      <div class="feed-ts">Sun · 9:00 PM CDT · evening</div>
+      <div class="feed-msg"><span class="tag tag-eod">EOD</span>Day closed clean. Sat badge reg done, Sun laundry done, Sun PM light pack done. Remaining: REAL ID check, Mon 9 AM reminder, 7 hrs sleep. No Vegas-moving changes today.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Sun · 9:00 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-upd">UPDATED</span>KC Monday forecast cooled · 69° / 43° sunny (was 82° / 60° in morning pull). Cold commute AM, clears by noon. Zero impact on departure.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Sun · 9:00 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-alert">CONFLICT</span>Tue 4:30-7:15 PM KC AI Club meetup (Kovac) · you're RSVP'd accepted but you'll be wheels-up by then. Send regret tonight or Mon AM.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Sun · 9:00 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Calendar cross-checked for tomorrow · 16 events holding steady since morning. Luke ULM online 10 AM, Ben's class 11 AM, no Vegas-prep conflicts.</div>
+    </div>
+    <div class="feed-item">
+      <div class="feed-ts">Sun · 9:00 PM CDT</div>
+      <div class="feed-msg"><span class="tag tag-alert">ALERT</span>Phish.net pricing API still unavailable (18h out). Cached $118 + trend remains the working number. Fresh poll Mon 9 AM.</div>
     </div>
     <div class="feed-item">
       <div class="feed-ts">Sun · 8:32 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-upd">UPDATED</span>KC weather refreshed · 69° clear tonight (was 80° day-chip). LAS Tue forecast steady at 85° / 59°.</div>
+      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Second morning pass. Nothing new in Gmail since 7:55 PM. Hold the line on Phish decision · Monday 9 AM.</div>
     </div>
     <div class="feed-item">
       <div class="feed-ts">Sun · 7:55 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-upd">UPDATED</span>State file patched: WN 3033 out / WN 1579 back / PNR AWWCMA. Cleaned the "pull from TripIt" placeholders.</div>
+      <div class="feed-msg"><span class="tag tag-upd">UPDATED</span>State file patched · WN 3033 out / WN 1579 back / PNR AWWCMA. Cleaned the "pull from TripIt" placeholders.</div>
     </div>
     <div class="feed-item">
       <div class="feed-ts">Sun · 7:55 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-alert">RECONCILE</span>Obsidian trip note still shows Apr 23-26. Authoritative dates are Apr 21-24. Hand-edit the note or let the next Atlas run patch it.</div>
+      <div class="feed-msg"><span class="tag tag-alert">RECONCILE</span>Obsidian trip note still shows Apr 23-26. Authoritative dates Apr 21-24. Hand-edit the note or let the next run patch it.</div>
     </div>
     <div class="feed-item">
       <div class="feed-ts">Sun · 7:55 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-new">NEW</span>Wed 7-10 PM client reception at Skyfall added from calendar. Wed dinner slot killed.</div>
-    </div>
-    <div class="feed-item">
-      <div class="feed-ts">Sun · 7:55 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-new">NEW</span>Thu 4-6 PM Cloud and Cocktails at PwC Lounge. Hands the Sphere transition a hard edge, not a blocker.</div>
-    </div>
-    <div class="feed-item">
-      <div class="feed-ts">Sun · 7:55 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-alert">ALERT</span>Phish.net API unavailable at 19:55. Using cached $118 from Tue 10:14 PM. Price likely higher now.</div>
-    </div>
-    <div class="feed-item">
-      <div class="feed-ts">Sun · 7:55 PM CDT</div>
-      <div class="feed-msg"><span class="tag tag-act">ACTION</span>Solo trip routine kicks in Tuesday. Daily Marcie check-in draft staged for Tue evening at wheels-down.</div>
+      <div class="feed-msg"><span class="tag tag-new">NEW</span>Wed 7-10 PM Skyfall client reception (calendar). Wed dinner slot killed. Thu PwC Cloud and Cocktails 4-6 PM sets up the Sphere transition.</div>
     </div>
   </div>
 
@@ -510,16 +528,17 @@
     <div class="tm-hero">
       <div class="tm-hero-icon">☀️</div>
       <div>
-        <div class="tm-hero-t">KC sunny · 82° / 60°</div>
-        <div class="tm-hero-s">Normal workday. Vegas Tue forecast: 85°, dry, mild wind.</div>
+        <div class="tm-hero-t">KC sunny · 69° / 43°</div>
+        <div class="tm-hero-s">Cool morning commute. Vegas Tue forecast holding 85° / 60° dry.</div>
       </div>
     </div>
 
     <div class="tm-list">
-      <div class="tm-row"><div class="tm-row-ic">🎟</div><div class="tm-row-t"><strong>Phish decision by <span class="hl">9 AM</span>.</strong> Every 24h is about +18%. Do not carry this to Tuesday.</div></div>
-      <div class="tm-row"><div class="tm-row-ic">🧳</div><div class="tm-row-t">Final pack Monday evening. Suit + shoes + laptop + backup badge lanyard.</div></div>
-      <div class="tm-row"><div class="tm-row-ic">🪪</div><div class="tm-row-t">Verify REAL ID star. Passport in travel sleeve as backup.</div></div>
-      <div class="tm-row"><div class="tm-row-ic">💬</div><div class="tm-row-t">Close Burns &amp; Mac threads that cannot wait. OOO auto-responder on by <span class="hl">6 PM</span>.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🎟</div><div class="tm-row-t"><strong>Phish decision by <span class="hl">9 AM</span>.</strong> Pull fresh price. Atlas leans YES at $150 cap. Do not carry to Tuesday.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">✉️</div><div class="tm-row-t">One-line regret to KC AI Club (Kovac). Two sentences, mention trip + May meetup.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">💬</div><div class="tm-row-t">Close Burns &amp; Mac threads. OOO auto-responder live by <span class="hl">6 PM</span>.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🧳</div><div class="tm-row-t">Final pack Mon evening. Suit on top, shoes + laptop + backup lanyard, charger brick.</div></div>
+      <div class="tm-row"><div class="tm-row-ic">🪪</div><div class="tm-row-t">REAL ID done tonight (hopefully). Passport in travel sleeve either way.</div></div>
     </div>
 
     <div class="tm-alarm">
@@ -570,10 +589,10 @@
       <div class="venue-top">
         <div>
           <div class="venue-name">PwC Lounge</div>
-          <div class="venue-tags">Calendar-confirmed<span class="tag-pipe">·</span>Thu 8:30 AM + 4 PM</div>
+          <div class="venue-tags">Calendar-confirmed<span class="tag-pipe">·</span>Thu 10:30 AM + 6 PM</div>
         </div>
       </div>
-      <div class="venue-desc">Enterprise AI session Thu morning, Cloud and Cocktails Thu 4-6 PM. Two scheduled touches already.</div>
+      <div class="venue-desc">Enterprise AI session Thu 10:30 AM, Cloud and Cocktails Thu 6-8 PM local. Two scheduled touches already.</div>
     </div>
   </div>
 
@@ -698,7 +717,7 @@
 
 <div class="foot">
   <div class="foot-sig">Atlas · for <span class="accent">Jeff</span></div>
-  <div class="foot-upd">Last sync: Sun Apr 19 · 8:32 PM CDT · morning run</div>
+  <div class="foot-upd">Last sync: Sun Apr 19 · 9:00 PM CDT · evening run</div>
 </div>
 
 <div class="modal-bg" id="voiceModal">
@@ -738,7 +757,7 @@
         <div class="act-opt-ic">🎟</div>
         <div class="act-opt-body">
           <div class="act-opt-t">Phish · ~$118 projected</div>
-          <div class="act-opt-s">Pending your YES/NO by Wed 2 PM PT</div>
+          <div class="act-opt-s">Pending your YES/NO by Mon 9 AM</div>
         </div>
       </div>
       <div class="act-opt">
@@ -766,7 +785,7 @@
   const ctxLabel = document.getElementById('ctxLabel');
 
   const locContext = {
-    hotel: { label: 'Home · Kansas City', sub: '~43 hours to wheels-up. <strong>Southwest 3033</strong> confirmed, PNR <strong>AWWCMA</strong>. One decision left: Phish.' },
+    hotel: { label: 'Home · Kansas City', sub: 'Day closes with two small opens. Tomorrow is your <strong>last KC workday</strong>. Tuesday 3:40 PM CT is wheels-up.' },
     venue: { label: 'Pre-view · Mandalay Bay', sub: 'Venue mode activates Wed 9 AM at the opening keynote.' },
     offsite: { label: 'Off-site picks pre-loaded', sub: 'Vesta Coffee and Red Rock have been flagged across multiple Vegas trips.' },
     airport: { label: 'Return flight · Fri Apr 24', sub: 'Southwest 1579 · LAS to MCI · 1:10 PM PT. Pair with Mandalay luggage valet.' }
@@ -856,6 +875,9 @@
         <div class="voice-prompt" onclick="askAtlas('Lock Phish Thursday. Best available under 200. Confirm with me first.')">
           "Lock Phish Thursday. Best available under 200. Confirm first."
         </div>
+        <div class="voice-prompt" onclick="askAtlas('Draft the one-line KC AI Club regret note I can send Chris Kovac tonight.')">
+          "Draft the KC AI Club regret note for Chris Kovac."
+        </div>
         <div class="voice-prompt" onclick="askAtlas('What should I pack Monday night that I always forget?')">
           "What should I pack Monday night that I always forget?"
         </div>
@@ -899,9 +921,11 @@
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 800,
-          system: `You are Atlas, Jeff Danley's personal AI travel agent. Today is Sunday April 19, 2026. Jeff is home in Kansas City, 2 days from departing to Google Cloud Next '26 in Las Vegas (Apr 21-24). Flight: Southwest 3033 Tue 3:40 PM CT, PNR AWWCMA. Staying at New York-New York Room 2847. Return: Southwest 1579 Fri 1:10 PM PT. Solo trip. Wife is Marcie. He is Innovation Development Director at Burns & McDonnell.
+          system: `You are Atlas, Jeff Danley's personal AI travel agent. Today is Sunday April 19, 2026, 9 PM CDT (evening run). Jeff is home in Kansas City, 2 days from departing to Google Cloud Next '26 in Las Vegas (Apr 21-24). Flight: Southwest 3033 Tue 3:40 PM CT, PNR AWWCMA. Staying at New York-New York Room 2847. Return: Southwest 1579 Fri 1:10 PM PT. Solo trip. Wife is Marcie. He is Innovation Development Director at Burns & McDonnell.
 
-Key open items: Phish at Sphere Thursday (tickets ~$118, rising), Wed client reception at Skyfall 7-10 PM, Thu PwC Cloud and Cocktails 4-6 PM then Phish.
+Tonight's open loops: verify REAL ID star on his Missouri license, set a Mon 9 AM reminder to decide on Phish at Sphere (Thursday, cached $118, rising, Atlas leans YES). Tue 4:30 PM KC AI Club meetup (Chris Kovac) conflicts with the flight; Jeff needs to send a regret. OOO auto-responder should go live Mon 6 PM.
+
+Key open items: Phish at Sphere Thursday (~$118, rising), Wed Skyfall client reception 7-10 PM, Thu PwC Cloud and Cocktails 4-6 PM then Phish.
 
 Voice rules:
 - Direct, no preamble
